@@ -37,7 +37,6 @@ This repository contains a comprehensive testing framework for the OrangeHRM app
 
 ## Repository Structure
 ```
-/ test-cases          # Manual test cases documentation
 / api-tests           # Postman collections for API testing
 / performance-tests   # Load testing scripts and results
 / automation          # Selenium scripts for automated testing
