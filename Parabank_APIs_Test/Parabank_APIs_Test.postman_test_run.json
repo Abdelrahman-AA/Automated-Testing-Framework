@@ -1,0 +1,2096 @@
+{
+	"id": "1471cb05-eb47-4a38-8398-5946d28d0cf0",
+	"name": "Parabank_Test",
+	"timestamp": "2025-03-23T14:44:04.434Z",
+	"collection_id": "40218832-19f8dc6d-721f-48e5-b620-542bd3f6d67b",
+	"folder_id": 0,
+	"environment_id": "40218832-d6c3a8af-aadb-4eca-b363-08cf74a7ebd6",
+	"totalPass": 145,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-03-23T14:43:47.396Z",
+	"totalFail": 9,
+	"results": [
+		{
+			"id": "7e6cfc83-6f09-4443-89bc-57b4c53165b7",
+			"name": "Parabank_Get_JSESSIONID",
+			"url": "https://parabank.parasoft.com/parabank/register.htm",
+			"time": 928,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Extract JSESSIONID and store it": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Extract JSESSIONID and store it": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				928
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Extract JSESSIONID and store it": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "dd5c8196-2b36-47eb-9142-f576d97473d6",
+			"name": "parabank_Register_1",
+			"url": "https://parabank.parasoft.com/parabank/register.htm",
+			"time": 269,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Verify user creation": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify user creation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				269
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Verify user creation": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "50e853cc-8465-40e6-85a6-842d67eb6522",
+			"name": "parabank_Login1_1",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/login/Test_094/Test123",
+			"time": 328,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Login successfully": true,
+				"Validate API Response Against Expected Inputs": true,
+				"Response time is below 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Login successfully": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate API Response Against Expected Inputs": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				328
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Login successfully": true,
+					"Validate API Response Against Expected Inputs": true,
+					"Response time is below 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "346d90e1-6673-46f1-a9b0-239ca5cf547a",
+			"name": "parabank_CleanDB",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/cleanDB",
+			"time": 238,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				238
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "37f65c33-6840-4f51-8d5d-a285a5d53e8e",
+			"name": "parabank_Login1_2",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/login/Test_094/Test123",
+			"time": 237,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response message is 'Invalid username and/or password'": true,
+				"Response time is below 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response message is 'Invalid username and/or password'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				237
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Response message is 'Invalid username and/or password'": true,
+					"Response time is below 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "92a1f55e-4a81-4995-98b2-9760a843d59f",
+			"name": "parabank_Register_2",
+			"url": "https://parabank.parasoft.com/parabank/register.htm",
+			"time": 244,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Verify user creation": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify user creation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				244
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Verify user creation": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "384748c9-917f-43cd-aba4-ad6e71589a2b",
+			"name": "parabank_Login2_1",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/login/Test_095/Test123",
+			"time": 247,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Login successfully": true,
+				"Validate API Response Against Expected Inputs": true,
+				"Response time is below 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Login successfully": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate API Response Against Expected Inputs": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				247
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Login successfully": true,
+					"Validate API Response Against Expected Inputs": true,
+					"Response time is below 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "89195725-d4e9-4753-ae65-20062b7adc2f",
+			"name": "parabank_InitializeDB",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/initializeDB",
+			"time": 445,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				445
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "d218c8fe-1cd2-4f51-b860-9c062bddb074",
+			"name": "parabank_Login2_2",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/login/Test_095/Test123",
+			"time": 257,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response message is 'Invalid username and/or password'": true,
+				"Response time is below 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response message is 'Invalid username and/or password'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				257
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Response message is 'Invalid username and/or password'": true,
+					"Response time is below 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "937e4d8f-1da5-4d65-8148-6edffa95dcfc",
+			"name": "parabank_ShutdownJmsListener",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/shutdownJmsListener",
+			"time": 746,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				746
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "d7b64147-6b42-4929-b17a-1ade302e5218",
+			"name": "parabank_StartupJmsListener",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/startupJmsListener",
+			"time": 240,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				240
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "afec5123-a539-4990-8fc3-86cd789f84d7",
+			"name": "parabank_Register_F",
+			"url": "https://parabank.parasoft.com/parabank/register.htm",
+			"time": 238,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Verify user creation": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify user creation": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				238
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Verify user creation": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "851e39c5-3cbd-42b9-a27d-9e6e7083322a",
+			"name": "parabank_Register_WithRName",
+			"url": "https://parabank.parasoft.com/parabank/register.htm",
+			"time": 240,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"This username already exists": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"This username already exists": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				240
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"This username already exists": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "a9101b72-cd02-4981-ab30-0cc73b78bab9",
+			"name": "parabank_Login_F",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/login/Test_096/Test123",
+			"time": 334,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Login successfully": true,
+				"Validate API Response Against Expected Inputs": true,
+				"Response time is below 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Login successfully": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate API Response Against Expected Inputs": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				334
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Login successfully": true,
+					"Validate API Response Against Expected Inputs": true,
+					"Response time is below 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "1ecca17a-175a-4afd-8a58-e7d600989121",
+			"name": "parabank_UserByID",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/customers/12434",
+			"time": 233,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate API Response Against Expected Inputs": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate API Response Against Expected Inputs": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				233
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate API Response Against Expected Inputs": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "ea6bc523-e6c7-4c8c-838a-6f91d8850e4c",
+			"name": "parabank_cusomerUpdate",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/customers/update/12434?firstName=FNTEST2&lastName=LNTEST2&street=123 TestSt2&city=Cairo2&state=Ca2&zipCode=123452&phoneNumber=1234567892&ssn=1234567892&username=Test_0962&password=Test1232",
+			"time": 258,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Successfully updated customer profile": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successfully updated customer profile": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				258
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Successfully updated customer profile": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "7d114cae-f042-4823-bc70-43d8a11ff003",
+			"name": "parabank_loginOldUname",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/login/Test_096/Test123",
+			"time": 260,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Invalid username and/or password": true,
+				"Response time is below 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Invalid username and/or password": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				260
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Invalid username and/or password": true,
+					"Response time is below 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "c731f75b-edab-4ad8-8612-8b32d9531e50",
+			"name": "parabank_loginNewUName",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/login/Test_0962/Test1232",
+			"time": 265,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate API Response Against Expected Inputs": true,
+				"Response time is below 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate API Response Against Expected Inputs": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is below 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				265
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate API Response Against Expected Inputs": true,
+					"Response time is below 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "99260d1b-050c-4559-a784-48746b2a1090",
+			"name": "parabank_CustomersAccounts",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/customers/12434/accounts",
+			"time": 326,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Add the First Account ID and Balance": true,
+				"Add a var 10% Balance": true,
+				"Add All Acounts ID": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Add the First Account ID and Balance": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Add a var 10% Balance": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Add All Acounts ID": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				326
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Add the First Account ID and Balance": true,
+					"Add a var 10% Balance": true,
+					"Add All Acounts ID": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "dfb1abe3-9d80-4e7a-a1f2-7d0c6d686177",
+			"name": "parabank_Billpay",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/billpay?accountId=13566&amount=51.55",
+			"time": 266,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate API Response Against Expected Inputs": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate API Response Against Expected Inputs": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				266
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate API Response Against Expected Inputs": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "019b6980-ff47-4521-9c79-d2a14d2e0bea",
+			"name": "parabank_CustomersAccounts_AfterBillpay",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/customers/12434/accounts",
+			"time": 228,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Check Balance After Billpay": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check Balance After Billpay": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				228
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Check Balance After Billpay": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "47684ded-366b-4b0e-9402-7dbbeb4fcfbc",
+			"name": "parabank_ِAccountDeposit",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/deposit?accountId=13566&amount=51.55",
+			"time": 227,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response message contains the correct deposit amount and account number": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response message contains the correct deposit amount and account number": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				227
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response message contains the correct deposit amount and account number": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "5f25bca2-f979-4039-be98-270de87cebe7",
+			"name": "parabank_CAccountBalance_AfterDEposit",
+			"url": "https://parabank.parasoft.com/parabank/services/bank//accounts/13566",
+			"time": 321,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains the correct id, customerId, and balance": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains the correct id, customerId, and balance": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				321
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains the correct id, customerId, and balance": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "f5d71fe8-0241-41a5-999d-701c34db196b",
+			"name": "parabank_AccountWithdraw",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/withdraw?accountId=13566&amount=51.55",
+			"time": 254,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response message contains the correct withdrew amount and account number": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response message contains the correct withdrew amount and account number": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				254
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response message contains the correct withdrew amount and account number": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "ccee22d6-edb6-44ea-bacd-04a1a2d15999",
+			"name": "parabank_CAccountBalance_AfterWithdrew",
+			"url": "https://parabank.parasoft.com/parabank/services/bank//accounts/13566",
+			"time": 227,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains the correct id, customerId, and balance": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains the correct id, customerId, and balance": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				227
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains the correct id, customerId, and balance": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "7887665b-7541-47cf-b79e-f100a5664c63",
+			"name": "parabank_CreateAccount_CHECKING",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/createAccount?customerId=12434&newAccountType=0&fromAccountId=13566",
+			"time": 230,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate API Response Against Expected Inputs": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate API Response Against Expected Inputs": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				230
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate API Response Against Expected Inputs": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "e36115e2-3cd6-4156-8b9a-7cc08950a404",
+			"name": "parabank_CreateAccount_SAVINGS",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/createAccount?customerId=12434&newAccountType=1&fromAccountId=13566",
+			"time": 240,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate API Response Against Expected Inputs": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate API Response Against Expected Inputs": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				240
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate API Response Against Expected Inputs": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "5134dd45-52be-46da-84b5-6d5c5201d5ec",
+			"name": "parabank_CreateAccount_LOAN",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/createAccount?customerId=12434&newAccountType=2&fromAccountId=13566",
+			"time": 235,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Validate API Response Against Expected Inputs": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate API Response Against Expected Inputs": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				235
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Validate API Response Against Expected Inputs": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "4717cd1d-0e00-475c-99ed-6a7373cc589e",
+			"name": "parabank_CustomersAccounts after New Accounts",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/customers/12434/accounts",
+			"time": 240,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"All stored accounts exist in the response": true,
+				"Add the Second Account ID and Balance": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"All stored accounts exist in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Add the Second Account ID and Balance": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				240
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"All stored accounts exist in the response": true,
+					"Add the Second Account ID and Balance": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "e51a5677-f62f-4a9d-8770-771584569dd3",
+			"name": "parabank_Transfer",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/transfer?fromAccountId=13677&toAccountId=13566&amount=100",
+			"time": 250,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response message contains the correct transferred amount and accounts number": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response message contains the correct transferred amount and accounts number": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				250
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response message contains the correct transferred amount and accounts number": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "7e93da56-b33d-48ab-9e0f-bcf8d4c58ef9",
+			"name": "parabank_CAccountBalance_AfterTransfer",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/accounts/13677",
+			"time": 261,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains the correct id, customerId, and balance": true,
+				"Response data matches expected format": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains the correct id, customerId, and balance": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data matches expected format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				261
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains the correct id, customerId, and balance": true,
+					"Response data matches expected format": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "b961f1f2-9e9f-4bc7-a386-3dc1689de304",
+			"name": "parabank_TransactionsAccount1",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/accounts/13566/transactions",
+			"time": 259,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": true,
+				"Response data matches expected format": true,
+				"Save last transaction ID as transferId": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data matches expected format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Save last transaction ID as transferId": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				259
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": true,
+					"Response data matches expected format": true,
+					"Save last transaction ID as transferId": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "51c4b96a-5991-49c0-8275-84dc84c3855a",
+			"name": "parabank_TransactionsAccount2",
+			"url": "https://parabank.parasoft.com/parabank/services/bank//accounts/13677/transactions",
+			"time": 240,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": true,
+				"Response data matches expected format": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data matches expected format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				240
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": true,
+					"Response data matches expected format": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "c77cb199-ed47-4e44-afe7-c08e20b90064",
+			"name": "parabank_Transactions_WithAmount",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/accounts/13677/transactions/amount/100",
+			"time": 225,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": true,
+				"Response data matches expected format": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data matches expected format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				225
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": true,
+					"Response data matches expected format": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "f08ab306-1917-4ec2-824b-e5ff50bce5c1",
+			"name": "parabank_Transactions_WithMonth+Type",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/accounts/13677/transactions/month/1740780000000/type/Debit",
+			"time": 318,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": true,
+				"Response data matches expected format": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data matches expected format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				318
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": true,
+					"Response data matches expected format": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "b40f65ab-f8d7-4a34-af31-9d32e02c0ad9",
+			"name": "parabank_Transactions_FromDateToDate",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/accounts/13677/transactions/fromDate/2025-03-20T14:44:00.586Z/toDate/2025-03-26T14:44:00.586Z",
+			"time": 277,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": false,
+				"Response data matches expected format": false,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response data matches expected format": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				277
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": false,
+					"Response data matches expected format": false,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "9a4f3452-976e-4358-a0ea-320e601b9c5f",
+			"name": "parabank_Transactions_OnDate",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/accounts/13677/transactions/onDate/2025-03-23T14:44:00.927Z",
+			"time": 320,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": false,
+				"Response data matches expected format": false,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response data matches expected format": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				320
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": false,
+					"Response data matches expected format": false,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "62611794-cd6e-4255-b707-895a91b9ecee",
+			"name": "parabank_Transactions_byTransactionID",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/transactions/15586",
+			"time": 248,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": true,
+				"Response matches expected format": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response matches expected format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				248
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": true,
+					"Response matches expected format": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "c74fc184-00ef-4de0-b1cc-3f10e0775e41",
+			"name": "parabank_RequestLoan}",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/requestLoan?customerId=12434&amount=1000&downPayment=100&fromAccountId=13566",
+			"time": 410,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response matches expected format and values": false,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response matches expected format and values": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				410
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response matches expected format and values": false,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "50608650-92cd-454d-b2eb-0deaee853c9e",
+			"name": "parabank_SetParameter",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/setParameter/A/1",
+			"time": 231,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				231
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "d481b1ec-69c5-4363-a231-cd74ed031018",
+			"name": "parabank_CustomerPositions",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/customers/12434/positions",
+			"time": 229,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is empty": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				229
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is empty": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "ffd53a6f-1d46-43bf-b62c-dc4cd95e3ab4",
+			"name": "parabank_BuyPosition",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/customers/12434/buyPosition?accountId=13566&name=Test&symbol=TEST&shares=2&pricePerShare=100",
+			"time": 269,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response matches expected format": true,
+				"Values match expected variables": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response matches expected format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Values match expected variables": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				269
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response matches expected format": true,
+					"Values match expected variables": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "baa7cc7e-05cd-4bbb-bc6d-4079a1323dff",
+			"name": "parabank_positions_ByPoditionID",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/positions/13017",
+			"time": 338,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response matches expected format": true,
+				"Values match expected variables": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response matches expected format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Values match expected variables": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				338
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response matches expected format": true,
+					"Values match expected variables": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "e7b59726-4273-42a5-a703-34e5f7798cc1",
+			"name": "parabank_CustomerPositions_2",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/customers/12434/positions",
+			"time": 266,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": true,
+				"Response matches expected format": true,
+				"Values match expected variables": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response matches expected format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Values match expected variables": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				266
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": true,
+					"Response matches expected format": true,
+					"Values match expected variables": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "2059c9bc-6bc7-4dc6-85f7-1b81740a9a44",
+			"name": "parabank_Positions_by id within a date range",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/positions/13017/2025-03-20T14:44:00.586Z/2025-03-26T14:44:00.586Z",
+			"time": 247,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": false,
+				"Response is an array with correct format": false,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response is an array with correct format": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				247
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": false,
+					"Response is an array with correct format": false,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "be61746e-ff6c-4617-ad3a-d4c06bb67fc1",
+			"name": "parabank_SellPosition",
+			"url": "https://parabank.parasoft.com/parabank/services/bank/customers/12434/sellPosition?accountId=13566&positionId=13017&shares=2&pricePerShare=100",
+			"time": 278,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response data is not empty": false,
+				"Response is an array with correct format": false,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response data is not empty": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response is an array with correct format": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				278
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response data is not empty": false,
+					"Response is an array with correct format": false,
+					"Response time is less than 2000ms": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 13467,
+	"collection": {
+		"requests": [
+			{
+				"id": "7e6cfc83-6f09-4443-89bc-57b4c53165b7",
+				"method": "GET"
+			},
+			{
+				"id": "dd5c8196-2b36-47eb-9142-f576d97473d6",
+				"method": "POST"
+			},
+			{
+				"id": "50e853cc-8465-40e6-85a6-842d67eb6522",
+				"method": "GET"
+			},
+			{
+				"id": "346d90e1-6673-46f1-a9b0-239ca5cf547a",
+				"method": "POST"
+			},
+			{
+				"id": "37f65c33-6840-4f51-8d5d-a285a5d53e8e",
+				"method": "GET"
+			},
+			{
+				"id": "92a1f55e-4a81-4995-98b2-9760a843d59f",
+				"method": "POST"
+			},
+			{
+				"id": "384748c9-917f-43cd-aba4-ad6e71589a2b",
+				"method": "GET"
+			},
+			{
+				"id": "89195725-d4e9-4753-ae65-20062b7adc2f",
+				"method": "POST"
+			},
+			{
+				"id": "d218c8fe-1cd2-4f51-b860-9c062bddb074",
+				"method": "GET"
+			},
+			{
+				"id": "937e4d8f-1da5-4d65-8148-6edffa95dcfc",
+				"method": "POST"
+			},
+			{
+				"id": "d7b64147-6b42-4929-b17a-1ade302e5218",
+				"method": "POST"
+			},
+			{
+				"id": "afec5123-a539-4990-8fc3-86cd789f84d7",
+				"method": "POST"
+			},
+			{
+				"id": "851e39c5-3cbd-42b9-a27d-9e6e7083322a",
+				"method": "POST"
+			},
+			{
+				"id": "a9101b72-cd02-4981-ab30-0cc73b78bab9",
+				"method": "GET"
+			},
+			{
+				"id": "1ecca17a-175a-4afd-8a58-e7d600989121",
+				"method": "GET"
+			},
+			{
+				"id": "ea6bc523-e6c7-4c8c-838a-6f91d8850e4c",
+				"method": "POST"
+			},
+			{
+				"id": "7d114cae-f042-4823-bc70-43d8a11ff003",
+				"method": "GET"
+			},
+			{
+				"id": "c731f75b-edab-4ad8-8612-8b32d9531e50",
+				"method": "GET"
+			},
+			{
+				"id": "99260d1b-050c-4559-a784-48746b2a1090",
+				"method": "GET"
+			},
+			{
+				"id": "dfb1abe3-9d80-4e7a-a1f2-7d0c6d686177",
+				"method": "POST"
+			},
+			{
+				"id": "019b6980-ff47-4521-9c79-d2a14d2e0bea",
+				"method": "GET"
+			},
+			{
+				"id": "47684ded-366b-4b0e-9402-7dbbeb4fcfbc",
+				"method": "POST"
+			},
+			{
+				"id": "5f25bca2-f979-4039-be98-270de87cebe7",
+				"method": "GET"
+			},
+			{
+				"id": "f5d71fe8-0241-41a5-999d-701c34db196b",
+				"method": "POST"
+			},
+			{
+				"id": "ccee22d6-edb6-44ea-bacd-04a1a2d15999",
+				"method": "GET"
+			},
+			{
+				"id": "7887665b-7541-47cf-b79e-f100a5664c63",
+				"method": "POST"
+			},
+			{
+				"id": "e36115e2-3cd6-4156-8b9a-7cc08950a404",
+				"method": "POST"
+			},
+			{
+				"id": "5134dd45-52be-46da-84b5-6d5c5201d5ec",
+				"method": "POST"
+			},
+			{
+				"id": "4717cd1d-0e00-475c-99ed-6a7373cc589e",
+				"method": "GET"
+			},
+			{
+				"id": "e51a5677-f62f-4a9d-8770-771584569dd3",
+				"method": "POST"
+			},
+			{
+				"id": "7e93da56-b33d-48ab-9e0f-bcf8d4c58ef9",
+				"method": "GET"
+			},
+			{
+				"id": "b961f1f2-9e9f-4bc7-a386-3dc1689de304",
+				"method": "GET"
+			},
+			{
+				"id": "51c4b96a-5991-49c0-8275-84dc84c3855a",
+				"method": "GET"
+			},
+			{
+				"id": "c77cb199-ed47-4e44-afe7-c08e20b90064",
+				"method": "GET"
+			},
+			{
+				"id": "f08ab306-1917-4ec2-824b-e5ff50bce5c1",
+				"method": "GET"
+			},
+			{
+				"id": "b40f65ab-f8d7-4a34-af31-9d32e02c0ad9",
+				"method": "GET"
+			},
+			{
+				"id": "9a4f3452-976e-4358-a0ea-320e601b9c5f",
+				"method": "GET"
+			},
+			{
+				"id": "62611794-cd6e-4255-b707-895a91b9ecee",
+				"method": "GET"
+			},
+			{
+				"id": "c74fc184-00ef-4de0-b1cc-3f10e0775e41",
+				"method": "POST"
+			},
+			{
+				"id": "50608650-92cd-454d-b2eb-0deaee853c9e",
+				"method": "POST"
+			},
+			{
+				"id": "d481b1ec-69c5-4363-a231-cd74ed031018",
+				"method": "GET"
+			},
+			{
+				"id": "ffd53a6f-1d46-43bf-b62c-dc4cd95e3ab4",
+				"method": "POST"
+			},
+			{
+				"id": "baa7cc7e-05cd-4bbb-bc6d-4079a1323dff",
+				"method": "GET"
+			},
+			{
+				"id": "e7b59726-4273-42a5-a703-34e5f7798cc1",
+				"method": "GET"
+			},
+			{
+				"id": "2059c9bc-6bc7-4dc6-85f7-1b81740a9a44",
+				"method": "GET"
+			},
+			{
+				"id": "be61746e-ff6c-4617-ad3a-d4c06bb67fc1",
+				"method": "POST"
+			}
+		]
+	}
+}
