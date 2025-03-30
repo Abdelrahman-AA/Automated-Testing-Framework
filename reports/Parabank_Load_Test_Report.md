@@ -52,26 +52,32 @@ Each user executed the following sequence of requests:
 <br>
 
 - **Request Success vs. Failure Rate**: A pie chart showing the percentage of successful and failed requests.
-  
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/success_rate_plot_en.png" alt="Response Time">
+  <p align="center">
+  <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/success_rate_plot_en.png" alt="Response Time" width="600">
 </p>
 
+<br>
 
 - **Response Time Distribution by Request Type**: A bar chart displaying average response times for each request type.
-  
-![Response Time Distribution by Request Type](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/response_by_request_plot_en.png)
+  <p align="center">
+  <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/response_by_request_plot_en.png" alt="Response Time Distribution by Request Type" width="600">
+</p>
 
+<br>
 
 - **End-to-End Scenario Execution Time Distribution**: A box plot or line chart showing the distribution of execution times across completed user scenarios.
-  
-![End-to-End Scenario Execution Time Distribution](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/scenario_response_distribution_plot_en.png)
+  <p align="center">
+  <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/scenario_response_distribution_plot_en.png" alt="End-to-End Scenario Execution Time Distribution" width="600">
+</p>
 
+<br>
 
 - **Active Users Over Time**: A line chart depicting how the number of active users increased over the **300-second** ramp-up period.
-  
-![Active Users Over Time](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/users_over_time_plot_en.png)
+  <p align="center">
+  <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/users_over_time_plot_en.png" alt="Active Users Over Time" width="600">
+</p>
 
+<br>
 
 **6. Recommendations**
 - Investigate the cause of account creation failures for the affected **45 users**.
