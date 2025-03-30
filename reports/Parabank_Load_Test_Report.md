@@ -48,7 +48,9 @@ Each user executed the following sequence of requests:
 
 <br>
 
+<p align="center">
 <img class="center-img" src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/response_vs_users_plot_en.png" alt="Response Time">
+</p>
 
 <br>
 
