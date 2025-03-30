@@ -45,7 +45,10 @@ Each user executed the following sequence of requests:
 **5. Visualized Data**
 - **Response Time vs. Number of Users**: A line chart illustrating how response time changed as the number of users increased.
 
-<img src="[images/success_rate.png](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/response_vs_users_plot_en.png)" alt="Success Rate" style="width: 300px; height: auto;">
+![Response Time vs. Number of Users](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/response_vs_users_plot_en.png)
+
+<img src="[images/response_time.png](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/response_vs_users_plot_en.png)" alt="Response Time" width="500">
+
 
 - **Request Success vs. Failure Rate**: A pie chart showing the percentage of successful and failed requests.
 ![Request Success vs. Failure Rate](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/success_rate_plot_en.png)
