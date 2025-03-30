@@ -19,7 +19,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 
 [📄 View API Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_APIs_Test_Report.md)
 
-### 2. Performance Testing
+### 2. Performance Testing (JMETER)
 - **Load Testing:** Evaluating system performance under high user load.
 - **Response Time Analysis:** Measuring efficiency and detecting bottlenecks.
   
