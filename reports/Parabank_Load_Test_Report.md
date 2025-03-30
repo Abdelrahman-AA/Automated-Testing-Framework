@@ -46,7 +46,7 @@ Each user executed the following sequence of requests:
 
 - **Response Time vs. Number of Users**: A line chart illustrating how response time changed as the number of users increased.
 <p align="center">
-<img class="center-img" src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/response_vs_users_plot_en.png" alt="Response Time">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/response_vs_users_plot_en.png" alt="Response Time" width="200">
 </p>
 
 <br>
