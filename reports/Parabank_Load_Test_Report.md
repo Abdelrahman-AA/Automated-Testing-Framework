@@ -48,6 +48,8 @@ Each user executed the following sequence of requests:
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/response_vs_users_plot_en.png" alt="Response Time">
+
+  
 </p>
 
 - **Request Success vs. Failure Rate**: A pie chart showing the percentage of successful and failed requests.
