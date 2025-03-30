@@ -22,6 +22,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 ### 2. Performance Testing
 - **Load Testing:** Evaluating system performance under high user load.
 - **Response Time Analysis:** Measuring efficiency and detecting bottlenecks.
+[📄 View Load Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_Load_Test_Report.md)
 
 ### 3. Automated Testing (Selenium)
 - **Automated Functional Tests:** Implementing scripts for key workflows.
