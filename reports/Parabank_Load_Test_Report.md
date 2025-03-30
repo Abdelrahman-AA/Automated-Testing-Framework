@@ -53,6 +53,10 @@ Each user executed the following sequence of requests:
   
 ![Request Success vs. Failure Rate](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/success_rate_plot_en.png)
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Load_Test/success_rate_plot_en.png" alt="Response Time" width="500">
+</div>
+
 
 - **Response Time Distribution by Request Type**: A bar chart displaying average response times for each request type.
   
