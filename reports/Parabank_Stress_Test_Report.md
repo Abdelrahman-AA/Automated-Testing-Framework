@@ -14,6 +14,7 @@
 
 **Testing Tool:** Apache JMeter
 
+
 ## 2. Test Scenario
 
 Each user executed the following sequence of requests:
@@ -33,6 +34,7 @@ Each user executed the following sequence of requests:
 13. View transfer history from the receiving account
 14. Log out
 
+
 ## 3. Test Results
 
 ### Overall Request Success Rate:
@@ -40,9 +42,9 @@ Each user executed the following sequence of requests:
 - **Total Requests:** 61,947
 
 ### Request Type Breakdown:
-
+<table align="center">
 | **Request Type**     | **Total Requests** | **Success Rate** | **Avg Response Time (ms)** |
-|----------------------|--------------------|------------------|----------------------------|
+|----------------------|:--------------------:|:------------------:|:----------------------------:|
 | **Logout-0**         | 2,251              | 100%             | 2138.52                   |
 | **Logout-1**         | 2,251              | 98.45%           | 2389.91                   |
 | **Get JSESSIONID**   | 7,043              | 99.09%           | 2598.47                   |
@@ -60,35 +62,36 @@ Each user executed the following sequence of requests:
 | **Register**         | 6,729              | 64.02%           | 2684.38                   |
 | **Withdraw**         | 3,254              | 74.52%           | 2120.73                   |
 | **Create Account 1** | 2,995              | 55.16%           | 1821.39                   |
-
+</table>
 
 ### Performance Metrics:
-
+<table align="center">
 | **Metric**                        | **Value**     |
-|----------------------------------|---------------|
+|----------------------------------|:---------------:|
 | Maximum Response Time            | 33,100 ms     |
 | Minimum Response Time            | 220 ms        |
 | 90th Percentile Response Time    | 6,311 ms      |
 | 95th Percentile Response Time    | 7,031 ms      |
 | 99th Percentile Response Time    | 12,627 ms     |
 | Average Response Time            | 2,661.89 ms   |
-
+</table>
 
 ### Error Distribution:
-
+<table align="center">
 | **Error Type**                                                                 | **Count** |
-|--------------------------------------------------------------------------------|-----------|
+|--------------------------------------------------------------------------------|:-----------:|
 | Non HTTP response code: java.net.SocketTimeoutException                        | 128       |
 | HTTP 400                                                                       | 6,543     |
 | HTTP 500                                                                       | 3,697     |
 | HTTP 502                                                                       | 15        |
 | HTTP 404                                                                       | 619       |
 | Non HTTP response code: org.apache.http.NoHttpResponseException                | 5         |
-
+</table>
 
 ### Users Completing Full Scenario:
 - **Users with no failures:** 814 users
 - **Average Execution Time for Completed Users:** 32.57 seconds
+
 
 ## 4. Observations
 
@@ -104,20 +107,22 @@ Each user executed the following sequence of requests:
 - The overall **success rate** across all requests was **82.23%**, indicating **potential performance and reliability issues** under heavy load.
 
 - **Common errors encountered:**
+  <table align="center">
 | **Error**                          | **Description**              | **Count** |
-|-----------------------------------|------------------------------|-----------|
+|-----------------------------------|:------------------------------:|:-----------:|
 | HTTP 400                          | Bad Request                  | 6,543     |
 | HTTP 500                          | Internal Server Error        | 3,697     |
 | SocketTimeoutException            | Timeout Exception            | 128       |
 | HTTP 404                          | Not Found                    | 619       |
 | NoHttpResponseException           | No Response from Server      | 5         |
-
+</table>
 - Despite the above issues, some request types maintained **high reliability**, including:
   - `logout-0`: 100% success
   - `Get JSESSIONID`: 99.09% success
   - `account balance`: 95.36% success
 
-**5. Visualized Data**
+
+## 5. Visualized Data
 
 - **Active Users Over Time**: A line chart showing how the number of active users varied throughout the test duration.  
 <p align="center">
@@ -182,6 +187,7 @@ Each user executed the following sequence of requests:
 
 <br>
 
+
 ## 6. Recommendations
 
 1. **Investigate critical failure points**, particularly in the `register`, `create account`, and `billpay` requests, which showed success rates below 75%. These endpoints are crucial and need reliability improvements under load.
@@ -197,6 +203,7 @@ Each user executed the following sequence of requests:
 6. **Monitor system capacity and scale dynamically**, especially during peak loads, using load balancers, database connection pooling, and horizontal scaling techniques.
 
 7. **Ensure test data consistency and isolation**, particularly for operations like `create account` or `transfer`, where dependencies between data may cause conflicts or unexpected behavior during concurrent access.
+
 
 ## 7. Conclusion
 
