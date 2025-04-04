@@ -102,13 +102,13 @@ Each user executed the following sequence of requests:
 
 - **Common errors encountered:**
   
-| ***Error***                          | ***Description***              | ***Count*** |
-|-----------------------------------|:------------------------------:|:-----------:|
-| HTTP 400                          | Bad Request                  | 6,543     |
-| HTTP 500                          | Internal Server Error        | 3,697     |
-| SocketTimeoutException            | Timeout Exception            | 128       |
-| HTTP 404                          | Not Found                    | 619       |
-| NoHttpResponseException           | No Response from Server      | 5         |
+    | ***Error***                          | ***Description***              | ***Count*** |
+    |-----------------------------------|:------------------------------:|:-----------:|
+    | HTTP 400                          | Bad Request                  | 6,543     |
+    | HTTP 500                          | Internal Server Error        | 3,697     |
+    | SocketTimeoutException            | Timeout Exception            | 128       |
+    | HTTP 404                          | Not Found                    | 619       |
+    | NoHttpResponseException           | No Response from Server      | 5         |
 
 - Despite the above issues, some request types maintained **high reliability**, including:
   - `logout-0`: 100% success
