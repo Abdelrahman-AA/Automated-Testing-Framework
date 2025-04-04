@@ -41,106 +41,50 @@ Each user executed the following sequence of requests:
 
 ### Request Type Breakdown:
 
-- **Logout-0:**
-  - Total Requests: 2,251
-  - Success Rate: 100%
-  - Avg Response Time: 2138.52 ms
+| **Request Type**     | **Total Requests** | **Success Rate** | **Avg Response Time (ms)** |
+|----------------------|--------------------|------------------|----------------------------|
+| **Logout-0**         | 2,251              | 100%             | 2138.52                   |
+| **Logout-1**         | 2,251              | 98.45%           | 2389.91                   |
+| **Get JSESSIONID**   | 7,043              | 99.09%           | 2598.47                   |
+| **Login**            | 4,151              | 95.9%            | 2449.86                   |
+| **Logout**           | 2,263              | 97.92%           | 4499.2                    |
+| **Transfer**         | 2,620              | 73.09%           | 2212.33                   |
+| **Billpay**          | 3,806              | 73.67%           | 2164.43                   |
+| **Account Balance**  | 3,406              | 95.36%           | 2308.42                   |
+| **Deposit**          | 3,595              | 73.8%            | 2121.05                   |
+| **Customer Accounts**| 6,734              | 95.59%           | 2583.7                    |
+| **Transactions 1**   | 2,493              | 96.19%           | 2528.04                   |
+| **Transactions 2**   | 2,366              | 92.6%            | 2511.86                   |
+| **Create Account 0** | 3,122              | 54.36%           | 1763.39                   |
+| **Create Account 2** | 2,868              | 54.71%           | 1884.37                   |
+| **Register**         | 6,729              | 64.02%           | 2684.38                   |
+| **Withdraw**         | 3,254              | 74.52%           | 2120.73                   |
+| **Create Account 1** | 2,995              | 55.16%           | 1821.39                   |
 
-- **Logout-1:**
-  - Total Requests: 2,251
-  - Success Rate: 98.45%
-  - Avg Response Time: 2389.91 ms
-
-- **Get JSESSIONID:**
-  - Total Requests: 7,043
-  - Success Rate: 99.09%
-  - Avg Response Time: 2598.47 ms
-
-- **Login:**
-  - Total Requests: 4,151
-  - Success Rate: 95.9%
-  - Avg Response Time: 2449.86 ms
-
-- **Logout:**
-  - Total Requests: 2,263
-  - Success Rate: 97.92%
-  - Avg Response Time: 4499.2 ms
-
-- **Transfer:**
-  - Total Requests: 2,620
-  - Success Rate: 73.09%
-  - Avg Response Time: 2212.33 ms
-
-- **Billpay:**
-  - Total Requests: 3,806
-  - Success Rate: 73.67%
-  - Avg Response Time: 2164.43 ms
-
-- **Account Balance:**
-  - Total Requests: 3,406
-  - Success Rate: 95.36%
-  - Avg Response Time: 2308.42 ms
-
-- **Deposit:**
-  - Total Requests: 3,595
-  - Success Rate: 73.8%
-  - Avg Response Time: 2121.05 ms
-
-- **Customer Accounts:**
-  - Total Requests: 6,734
-  - Success Rate: 95.59%
-  - Avg Response Time: 2583.7 ms
-
-- **Transactions 1:**
-  - Total Requests: 2,493
-  - Success Rate: 96.19%
-  - Avg Response Time: 2528.04 ms
-
-- **Transactions 2:**
-  - Total Requests: 2,366
-  - Success Rate: 92.6%
-  - Avg Response Time: 2511.86 ms
-
-- **Create Account 0:**
-  - Total Requests: 3,122
-  - Success Rate: 54.36%
-  - Avg Response Time: 1763.39 ms
-
-- **Create Account 2:**
-  - Total Requests: 2,868
-  - Success Rate: 54.71%
-  - Avg Response Time: 1884.37 ms
-
-- **Register:**
-  - Total Requests: 6,729
-  - Success Rate: 64.02%
-  - Avg Response Time: 2684.38 ms
-
-- **Withdraw:**
-  - Total Requests: 3,254
-  - Success Rate: 74.52%
-  - Avg Response Time: 2120.73 ms
-
-- **Create Account 1:**
-  - Total Requests: 2,995
-  - Success Rate: 55.16%
-  - Avg Response Time: 1821.39 ms
 
 ### Performance Metrics:
-- **Maximum Response Time:** 33,100 ms
-- **Minimum Response Time:** 220 ms
-- **90th Percentile Response Time:** 6311 ms
-- **95th Percentile Response Time:** 7031 ms
-- **99th Percentile Response Time:** 12,627 ms
-- **Average Response Time:** 2661.89 ms
+
+| **Metric**                        | **Value**     |
+|----------------------------------|---------------|
+| Maximum Response Time            | 33,100 ms     |
+| Minimum Response Time            | 220 ms        |
+| 90th Percentile Response Time    | 6,311 ms      |
+| 95th Percentile Response Time    | 7,031 ms      |
+| 99th Percentile Response Time    | 12,627 ms     |
+| Average Response Time            | 2,661.89 ms   |
+
 
 ### Error Distribution:
-- **Non HTTP response code: java.net.SocketTimeoutException:** Count: 128
-- **HTTP 400:** Count: 6,543
-- **HTTP 500:** Count: 3,697
-- **HTTP 502:** Count: 15
-- **HTTP 404:** Count: 619
-- **Non HTTP response code: org.apache.http.NoHttpResponseException:** Count: 5
+
+| **Error Type**                                                                 | **Count** |
+|--------------------------------------------------------------------------------|-----------|
+| Non HTTP response code: java.net.SocketTimeoutException                        | 128       |
+| HTTP 400                                                                       | 6,543     |
+| HTTP 500                                                                       | 3,697     |
+| HTTP 502                                                                       | 15        |
+| HTTP 404                                                                       | 619       |
+| Non HTTP response code: org.apache.http.NoHttpResponseException                | 5         |
+
 
 ### Users Completing Full Scenario:
 - **Users with no failures:** 814 users
@@ -160,11 +104,13 @@ Each user executed the following sequence of requests:
 - The overall **success rate** across all requests was **82.23%**, indicating **potential performance and reliability issues** under heavy load.
 
 - **Common errors encountered:**
-  - `HTTP 400 (Bad Request)`: 6543 times
-  - `HTTP 500 (Internal Server Error)`: 3697 times
-  - `SocketTimeoutException`: 128 times
-  - `HTTP 404`: 619 times
-  - `NoHttpResponseException`: 5 times
+| **Error**                          | **Description**              | **Count** |
+|-----------------------------------|------------------------------|-----------|
+| HTTP 400                          | Bad Request                  | 6,543     |
+| HTTP 500                          | Internal Server Error        | 3,697     |
+| SocketTimeoutException            | Timeout Exception            | 128       |
+| HTTP 404                          | Not Found                    | 619       |
+| NoHttpResponseException           | No Response from Server      | 5         |
 
 - Despite the above issues, some request types maintained **high reliability**, including:
   - `logout-0`: 100% success
