@@ -128,7 +128,7 @@ Each user executed the following sequence of requests:
 
 ### Performance Metrics:
 - **Maximum Response Time:** 33,100 ms
-- **Minimum Response Time:** 0.22 seconds
+- **Minimum Response Time:** 220 ms
 - **90th Percentile Response Time:** 6311 ms
 - **95th Percentile Response Time:** 7031 ms
 - **99th Percentile Response Time:** 12,627 ms
