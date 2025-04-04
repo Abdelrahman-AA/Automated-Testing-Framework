@@ -17,7 +17,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 - **Error Handling:** Testing robustness in various scenarios.
 - **Authentication & Authorization:** Validating security aspects.
 
-[📄 View API Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_APIs_Test_Report.md)
+  - [📄 View API Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_APIs_Test_Report.md)
 
 ### 2. Performance Testing (JMETER)
 - **Load Testing:** Evaluating system performance under high user load.
