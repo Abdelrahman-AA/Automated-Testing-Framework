@@ -1,0 +1,129 @@
+JMeter Performance Test Report
+==============================
+Report generated on: 2025-04-04 11:25:45
+
+Test Summary
+------------
+Total Requests: 61947
+Success Rate: 82.23%
+Average Response Time: 2661.89 ms
+Max Response Time: 33100 ms
+90th Percentile: 6311 ms
+95th Percentile: 7031 ms
+99th Percentile: 12627 ms
+Time Points Analyzed: 51048
+
+Request Statistics
+-----------------
+Request Type: logout-0
+  Total Requests: 2251
+  Successful Requests: 2251
+  Success Rate: 100%
+  Avg Response Time: 2138.52 ms
+
+Request Type: logout-1
+  Total Requests: 2251
+  Successful Requests: 2216
+  Success Rate: 98.45%
+  Avg Response Time: 2389.91 ms
+
+Request Type: Get JSESSIONID
+  Total Requests: 7043
+  Successful Requests: 6979
+  Success Rate: 99.09%
+  Avg Response Time: 2598.47 ms
+
+Request Type: login
+  Total Requests: 4151
+  Successful Requests: 3981
+  Success Rate: 95.9%
+  Avg Response Time: 2449.86 ms
+
+Request Type: logout
+  Total Requests: 2263
+  Successful Requests: 2216
+  Success Rate: 97.92%
+  Avg Response Time: 4499.2 ms
+
+Request Type: transfer
+  Total Requests: 2620
+  Successful Requests: 1915
+  Success Rate: 73.09%
+  Avg Response Time: 2212.33 ms
+
+Request Type: billpay
+  Total Requests: 3806
+  Successful Requests: 2804
+  Success Rate: 73.67%
+  Avg Response Time: 2164.43 ms
+
+Request Type: account balance
+  Total Requests: 3406
+  Successful Requests: 3248
+  Success Rate: 95.36%
+  Avg Response Time: 2308.42 ms
+
+Request Type: deposit
+  Total Requests: 3595
+  Successful Requests: 2653
+  Success Rate: 73.8%
+  Avg Response Time: 2121.05 ms
+
+Request Type: customers accounts
+  Total Requests: 6734
+  Successful Requests: 6437
+  Success Rate: 95.59%
+  Avg Response Time: 2583.7 ms
+
+Request Type: transactions 1
+  Total Requests: 2493
+  Successful Requests: 2398
+  Success Rate: 96.19%
+  Avg Response Time: 2528.04 ms
+
+Request Type: transactions 2
+  Total Requests: 2366
+  Successful Requests: 2191
+  Success Rate: 92.6%
+  Avg Response Time: 2511.86 ms
+
+Request Type: create account 0
+  Total Requests: 3122
+  Successful Requests: 1697
+  Success Rate: 54.36%
+  Avg Response Time: 1763.39 ms
+
+Request Type: create account 2
+  Total Requests: 2868
+  Successful Requests: 1569
+  Success Rate: 54.71%
+  Avg Response Time: 1884.37 ms
+
+Request Type: register
+  Total Requests: 6729
+  Successful Requests: 4308
+  Success Rate: 64.02%
+  Avg Response Time: 2684.38 ms
+
+Request Type: withdraw
+  Total Requests: 3254
+  Successful Requests: 2425
+  Success Rate: 74.52%
+  Avg Response Time: 2120.73 ms
+
+Request Type: create account 1
+  Total Requests: 2995
+  Successful Requests: 1652
+  Success Rate: 55.16%
+  Avg Response Time: 1821.39 ms
+
+Error Distribution
+-----------------
+Error Code: Non HTTP response code: java.net.SocketTimeoutException - Count: 128
+Error Code: 400 - Count: 6543
+Error Code: 500 - Count: 3697
+Error Code: 502 - Count: 15
+Error Code: 404 - Count: 619
+Error Code: Non HTTP response code: org.apache.http.NoHttpResponseException - Count: 5
+
+Note: See the generated charts for visual representation of the data.
