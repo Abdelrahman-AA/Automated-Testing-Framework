@@ -101,7 +101,8 @@ Each user executed the following sequence of requests:
 - The overall **success rate** across all requests was **82.23%**, indicating **potential performance and reliability issues** under heavy load.
 
 - **Common errors encountered:**
-| ***Error***                          | ***Description**              | ***Count*** |
+  
+| ***Error***                          | ***Description***              | ***Count*** |
 |-----------------------------------|:------------------------------:|:-----------:|
 | HTTP 400                          | Bad Request                  | 6,543     |
 | HTTP 500                          | Internal Server Error        | 3,697     |
