@@ -215,7 +215,7 @@ Each user executed the following sequence of requests:
 
 <br>
 
-- **Success Rate by Request Type**: A bar chart comparing success rates across different request types.  
+- **Success Rate by Request Type**: A pie chart comparing success rates across different request types.  
 <p align="center">
 <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/success_rate_by_request.png" alt="Success Rate by Request Type" width="600">
 </p>
@@ -229,7 +229,7 @@ Each user executed the following sequence of requests:
 
 <br>
 
-- **Error Distribution**: A pie or bar chart visualizing the types and counts of errors encountered during the test.  
+- **Error Distribution**: A bar chart visualizing the types and counts of errors encountered during the test.  
 <p align="center">
 <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/error_distribution.png" alt="Error Distribution" width="600">
 </p>
