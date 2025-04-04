@@ -42,7 +42,7 @@ Each user executed the following sequence of requests:
 - **Total Requests:** 61,947
 
 ### Request Type Breakdown:
-<table align="center">
+<div align="center">
 | **Request Type**     | **Total Requests** | **Success Rate** | **Avg Response Time (ms)** |
 |----------------------|:--------------------:|:------------------:|:----------------------------:|
 | **Logout-0**         | 2,251              | 100%             | 2138.52                   |
@@ -62,7 +62,7 @@ Each user executed the following sequence of requests:
 | **Register**         | 6,729              | 64.02%           | 2684.38                   |
 | **Withdraw**         | 3,254              | 74.52%           | 2120.73                   |
 | **Create Account 1** | 2,995              | 55.16%           | 1821.39                   |
-</table>
+</div>
 
 ### Performance Metrics:
 <table align="center">
