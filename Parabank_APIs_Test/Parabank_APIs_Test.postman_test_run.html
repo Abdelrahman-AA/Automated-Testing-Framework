@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabank API Test Report</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --warning: #f8961e;
+            --dark: #212529;
+            --light: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .badge-success {
+            background-color: var(--success);
+            color: white;
+        }
+        .badge-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+        .badge-warning {
+            background-color: var(--warning);
+            color: white;
+        }
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4cc9f0 0%, #4361ee 100%);
+        }
+        .test-results {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .test-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .test-table th, .test-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .test-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        .test-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        .passed {
+            color: #2ecc71;
+        }
+        .failed {
+            color: #e74c3c;
+        }
+        .insights {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .resources {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .resource-link {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .resource-link:hover {
+            background-color: #e9ecef;
+            transform: translateX(5px);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        .response-chart {
+            height: 200px;
+            margin-top: 20px;
+            position: relative;
+        }
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Parabank API Test Report</h1>
+            <p>Comprehensive test results for Parabank REST API endpoints</p>
+            <div>
+                <span class="badge badge-success">94.2% Pass Rate</span>
+                <span class="badge">154 Tests</span>
+                <span class="badge">17s 38ms Duration</span>
+            </div>
+        </div>
+
+        <div class="summary-cards">
+            <div class="card">
+                <h3>Test Summary</h3>
+                <p><strong>Total Tests:</strong> 154</p>
+                <p><strong>Passed:</strong> 145 (94.2%)</p>
+                <p><strong>Failed:</strong> 9 (5.8%)</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 94.2%"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Performance</h3>
+                <p><strong>Avg Response Time:</strong> 293ms</p>
+                <p><strong>Fastest:</strong> 225ms</p>
+                <p><strong>Slowest:</strong> 928ms</p>
+                <div class="response-chart">
+                    <!-- Response time chart placeholder -->
+                    <div style="text-align: center; padding-top: 80px; color: #6c757d;">Response Time Distribution</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Environment</h3>
+                <p><strong>Base URL:</strong> https://parabank.parasoft.com</p>
+                <p><strong>Test Date:</strong> March 23, 2025</p>
+                <p><strong>Framework:</strong> Postman</p>
+            </div>
+        </div>
+
+        <div class="test-results">
+            <h2>Detailed Test Results</h2>
+            <table class="test-table">
+                <thead>
+                    <tr>
+                        <td>Parabank_Get_JSESSIONID</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>928ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Register_1</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>269ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Login1_1</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>328ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CleanDB</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>238ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Login1_2</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>237ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Register_2</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>244ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Login2_1</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>247ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_InitializeDB</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>445ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Login2_2</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>257ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_ShutdownJmsListener</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>746ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_StartupJmsListener</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>240ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Register_F</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>238ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Register_WithRName</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>240ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Login_F</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>334ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_UserByID</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>233ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_cusomerUpdate</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>258ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_loginOldUname</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>260ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_loginNewUName</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>265ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CustomersAccounts</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>326ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Billpay</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>266ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CustomersAccounts_AfterBillpay</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>228ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_ِAccountDeposit</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>227ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CAccountBalance_AfterDEposit</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>321ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_AccountWithdraw</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>254ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CAccountBalance_AfterWithdrew</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>227ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CreateAccount_CHECKING</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>230ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CreateAccount_SAVINGS</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>240ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CreateAccount_LOAN</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>235ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CustomersAccounts after New Accounts</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>240ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Transfer</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>250ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CAccountBalance_AfterTransfer</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>261ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_TransactionsAccount1</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>259ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_TransactionsAccount2</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>240ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Transactions_WithAmount</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>225ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Transactions_WithMonth+Type</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>318ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Transactions_FromDateToDate</td>
+                        <td><span class="failed">❌ FAILED</span></td>
+                        <td>277ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Transactions_OnDate</td>
+                        <td><span class="failed">❌ FAILED</span></td>
+                        <td>320ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Transactions_byTransactionID</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>248ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_RequestLoan</td>
+                        <td><span class="failed">❌ FAILED</span></td>
+                        <td>410ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_SetParameter</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>231ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CustomerPositions</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>229ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_BuyPosition</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>269ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_positions_ByPoditionID</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>338ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_CustomerPositions_2</td>
+                        <td><span class="passed">✅ PASSED</span></td>
+                        <td>266ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_Positions_by id within a date range</td>
+                        <td><span class="failed">❌ FAILED</span></td>
+                        <td>247ms</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>parabank_SellPosition</td>
+                        <td><span class="failed">❌ FAILED</span></td>
+                        <td>278ms</td>
+                        <td></td>
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>Test Report generated on March 23, 2025 by Automated Testing Framework</p>
+        </div>
+    </div>
+</body>
+</html>
