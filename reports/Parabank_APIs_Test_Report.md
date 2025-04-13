@@ -1,24 +1,18 @@
 # 📊 Parabank APIs Test Report
 
-## 🟢 Summary
-- **Total Tests:** `154`  
-- **Passed:** `145` ✅  
-- **Failed:** `9` ❌  
-- **Total Execution Time:** `17s 38ms`  
-- **Average Response Time:** `293ms`
+ ## 🟢 Summary
+   - **Total Tests:** `154`  
+   - **Passed:** `145` ✅  
+   - **Failed:** `9` ❌  
+   - **Total Execution Time:** `17s 38ms`  
+   - **Average Response Time:** `293ms`
 
-## 🔗 Project Resources
+ ## 🔗 Project Resources
 
-Here are direct links to key API testing resources within the project repository:
-
-- 📁 [Postman Collection File](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman.json)  
-  *Includes all API test requests and test scripts used for validating the Parabank services.*
-
-- 📄 [Postman Test Run Results (JSON)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.json)  
-  *Raw test execution data including status codes, assertions, execution time, and request/response logs.*
-
-- 🧾 [HTML Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.html)  
-  *A visual test report generated after executing the Postman collection, providing summary and detailed views.*
+   Here are direct links to key API testing resources within the project repository:
+   - 📁 [Postman Collection File](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman.json)  *Includes all API test requests and test scripts used for validating the Parabank services.*
+      - 📄 [Postman Test Run Results (JSON)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.json)   *Raw test execution data including status codes, assertions, execution time, and request/response logs.*
+      - 🧾 [HTML Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.html)   *A visual test report generated after executing the Postman collection, providing summary and detailed views.*
 
 
 ## 📌 Test Results
