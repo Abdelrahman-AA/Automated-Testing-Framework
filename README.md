@@ -52,4 +52,4 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 ```
 
 ## License
-This project is licensed under the Team License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Team License - see the [LICENSE](LICENSE.md) file for details.
