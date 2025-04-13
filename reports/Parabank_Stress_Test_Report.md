@@ -48,6 +48,7 @@ Each user executed the following sequence of requests:
 13. View transfer history from the receiving account
 14. Log out
 
+---
 
 ## Test Results
 
