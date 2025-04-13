@@ -20,7 +20,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 
        - 📁 [Postman Collection File](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman.json)
        - 📄 [Postman Test Run Results (JSON)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.json)
-       - 🧾 [HTML Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test//Parabank_APIs_Test.postman_test_run.html)
+       - 🧾 [HTML Test Report](https://Abdelrahman-AA.github.io/Automated-Testing-Framework/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.html)
 
 ### 2. Performance Testing (JMETER)
 - **Load Testing:** Evaluating system performance under high user load.
