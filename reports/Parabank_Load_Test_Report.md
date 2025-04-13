@@ -43,11 +43,14 @@ Each user executed the following sequence of requests:
 ---
 
 ## Test Results
+
 - **Overall Request Success Rate:** **96.7%**
+  
 - **Failures:**
   - **45 users** failed to create an account, preventing further requests in their scenarios.
   - **141 users** encountered a failure in at least one request but continued the scenario.
   - **13 users** experienced failures in multiple requests.
+    
 - **Performance Metrics:**
   - **Maximum response time:** **2.26 seconds**
   - **Minimum response time:** **0.22 seconds**
