@@ -51,11 +51,11 @@ Each user executed the following sequence of requests:
 ---
 
 ## Test Results
-
+-----
 ### Overall Request Success Rate:
 - **Success Rate:** 82.23%
 - **Total Requests:** 61,947
-
+-----
 ### Request Type Breakdown:
   | **Request Type**     | **Total Requests** | **Success Rate** | **Avg Response Time (ms)** |
   |----------------------|:--------------------:|:------------------:|:----------------------------:|
@@ -76,7 +76,7 @@ Each user executed the following sequence of requests:
   | **Register**         | 6,729              | 64.02%           | 2684.38                   |
   | **Withdraw**         | 3,254              | 74.52%           | 2120.73                   |
   | **Create Account 1** | 2,995              | 55.16%           | 1821.39                   |
-
+-----
 ### Performance Metrics:
   | **Metric**                        | **Value**     |
   |----------------------------------|:---------------:|
@@ -86,7 +86,7 @@ Each user executed the following sequence of requests:
   | 95th Percentile Response Time    | 7,031 ms      |
   | 99th Percentile Response Time    | 12,627 ms     |
   | Average Response Time            | 2,661.89 ms   |
-
+-----
 ### Error Distribution:
   | **Error Type**                                                                 | **Count** |
   |--------------------------------------------------------------------------------|:-----------:|
@@ -96,7 +96,7 @@ Each user executed the following sequence of requests:
   | HTTP 502                                                                       | 15        |
   | HTTP 404                                                                       | 619       |
   | Non HTTP response code: org.apache.http.NoHttpResponseException                | 5         |
-
+-----
 ### Users Completing Full Scenario:
 - **Users with no failures:** 814 users
 - **Average Execution Time for Completed Users:** 32.57 seconds
