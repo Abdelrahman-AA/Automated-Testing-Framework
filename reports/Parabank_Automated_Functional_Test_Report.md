@@ -39,9 +39,8 @@ Here are direct links to key resources within the project repository:
 
 ## Graphs and Visualizations
 
-- `test_summary_pie.png`: Pass vs Fail Ratio  
-- `execution_time_bar.png`: Duration per Scenario  
-- `timeline_chart.png`: Execution Timeline
+- `Test Summary Pie`: Pass vs Fail Ratio  
+- `Timeline Chart`: Execution Timeline
 <p align="center">
 <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Automated_Functional_Test/Graphs.png" alt="Graphs" width="1000">
 </p>
