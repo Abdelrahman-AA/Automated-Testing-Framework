@@ -1,7 +1,7 @@
 # Automated Testing Framework
 
 ## Project Overview
-This repository contains a comprehensive testing framework for the **Parabank** application ([https://parabank.parasoft.com/](https://parabank.parasoft.com/)). Our testing approach includes API testing, performance testing, and automated testing using Selenium. All testing phases and results are documented in Jira.
+This repository contains a comprehensive testing framework for the **Parabank** application ([https://parabank.parasoft.com/](https://parabank.parasoft.com/)). Our testing approach includes API testing, performance testing, and automated testing using Selenium.
 
 ## Team Members
 - **Abdelrahman Abodief Mohamed**  
@@ -28,11 +28,16 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 
 ### 3. Automated Testing (Selenium)
 - **Automated Functional Tests:** Implementing scripts for key workflows.
-- **Regression Testing:** Ensuring new updates do not break existing functionality.
+  - [📄 View Parabank Automated Functional Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_Automated_Functional_Test_Report.md)
+
+        - 📁 [Test Files (Test Classes & Methods)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Automated_Test/parabank.rar)
+        - 📄 [HTML Test Report](https://abdelrahman-aa.github.io/Automated-Testing-Framework/Parabank_Automated_Functional_Test//Parabank_Automated_Functional_Test-Report.html)
+        - 🖼️ [Passed Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/PASSED)
+        - ❌ [Failed Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/FAILED)
+        - 📊 [Graphs & Visual Analysis](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Automated_Functional_Test/Graphs.png)
+
 
 ## Documentation
-- All test cases, bug reports, and results are tracked in **Jira**.
-- **Jira:** Used for tracking test cases, defects, and execution reports.
 - **GitHub Issues:** Managing project-related tasks and bugs.
 
 ## Repository Structure
