@@ -33,7 +33,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 - **Automated Functional Tests:** Implementing scripts for key workflows.
   - [📊 View Parabank Automated Functional Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_Automated_Functional_Test_Report.md)
 
-       - 📁 [Test Files (Test Classes & Methods)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Automated_Test/parabank)
+       - 📁 [Test Files (Test Classes & Methods)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Automated_Test/parabank/)
        - 📄 [HTML Test Report](https://abdelrahman-aa.github.io/Automated-Testing-Framework/Parabank_Automated_Functional_Test//Parabank_Automated_Functional_Test-Report.html)
        - 🖼️ [Passed Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/PASSED)
        - ❌ [Failed Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/FAILED)
