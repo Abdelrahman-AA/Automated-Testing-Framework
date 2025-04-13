@@ -1,5 +1,7 @@
 # 📊 Parabank APIs Test Report
 
+---
+
  ### 🟢 Summary
    - **Total Tests:** `154`  
    - **Passed:** `145` ✅  
@@ -7,15 +9,22 @@
    - **Total Execution Time:** `17s 38ms`  
    - **Average Response Time:** `293ms`
 
+---
+
  ### 🔗 Project Resources
+ 
+  Here are direct links to key API testing resources within the project repository:
+   
+   - 📁 [Postman Collection File](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman.json)  *Includes all API test requests and test scripts used for validating the Parabank services.*
+   
+   - 📄 [Postman Test Run Results (JSON)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.json)   *Raw test execution data including status codes, assertions, execution time, and request/response logs.*
+   
+   - 🧾 [HTML Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.html)   *A visual test report generated after executing the Postman collection, providing summary and detailed views.*
 
-   Here are direct links to key API testing resources within the project repository:
-         - 📁 [Postman Collection File](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman.json)  *Includes all API test requests and test scripts used for validating the Parabank services.*
-         - 📄 [Postman Test Run Results (JSON)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.json)   *Raw test execution data including status codes, assertions, execution time, and request/response logs.*
-         - 🧾 [HTML Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.html)   *A visual test report generated after executing the Postman collection, providing summary and detailed views.*
-
+---
 
 ### 📌 Test Results
+
 ```
 ✅ PASSED - Parabank_Get_JSESSIONID (928ms)
 ✅ PASSED - parabank_Register_1 (269ms)
@@ -65,14 +74,20 @@
 ❌ FAILED - parabank_SellPosition (278ms)
 ```
 
-## 📌 Key Insights
+---
+
+### 📌 Key Insights
 ✔ **High Success Rate:** `94.2%` of tests passed  
 ✔ **Fast Execution:** Average test response time under `300ms`  
 ❌ **Failures in Transaction & Loan Tests:** Possible validation issues  
 
-## 📌 Next Steps
+---
+
+### 📌 Next Steps
 - **Investigate failed tests** (`9` total), especially `Transactions_FromDateToDate`, `RequestLoan`, and `SellPosition`.  
 - **Review API response formats** to ensure correct data structures.  
 - **Optimize slow requests** if needed.  
 
-## 📌 **Overall, the API tests performed well with a high pass rate.** 
+---
+
+### 📌 **Overall, the API tests performed well with a high pass rate.** 
