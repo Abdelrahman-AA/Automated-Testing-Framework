@@ -16,8 +16,11 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 - **Request & Response Validation:** Ensuring API correctness and reliability.
 - **Error Handling:** Testing robustness in various scenarios.
 - **Authentication & Authorization:** Validating security aspects.
-
   - [📄 View API Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_APIs_Test_Report.md)
+
+       - 📁 [Postman Collection File](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman.json)
+       - 📄 [Postman Test Run Results (JSON)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.json)
+       - 🧾 [HTML Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.html)
 
 ### 2. Performance Testing (JMETER)
 - **Load Testing:** Evaluating system performance under high user load.
@@ -30,7 +33,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 - **Automated Functional Tests:** Implementing scripts for key workflows.
   - [📄 View Parabank Automated Functional Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_Automated_Functional_Test_Report.md)
 
-       - 📁 [Test Files (Test Classes & Methods)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Automated_Test/parabank.rar)
+       - 📁 [Test Files (Test Classes & Methods)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Automated_Test/parabank)
        - 📄 [HTML Test Report](https://abdelrahman-aa.github.io/Automated-Testing-Framework/Parabank_Automated_Functional_Test//Parabank_Automated_Functional_Test-Report.html)
        - 🖼️ [Passed Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/PASSED)
        - ❌ [Failed Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/FAILED)
