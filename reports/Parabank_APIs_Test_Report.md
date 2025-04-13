@@ -19,7 +19,7 @@
    
    - 📄 [Postman Test Run Results (JSON)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.json)   *Raw test execution data including status codes, assertions, execution time, and request/response logs.*
    
-   - 🧾 [HTML Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.html)   *A visual test report generated after executing the Postman collection, providing summary and detailed views.*
+   - 🧾 [HTML Test Report](https://Abdelrahman-AA.github.io/Automated-Testing-Framework/Parabank_APIs_Test/Parabank_APIs_Test.postman_test_run.html)   *A visual test report generated after executing the Postman collection, providing summary and detailed views.*
 
 ---
 
