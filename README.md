@@ -56,52 +56,61 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 ## Repository Structure
 ```
 /Parabank_APIs_Test                 # API testing using Postman
-/Parabank_Automated_Functional_Test # Automated functional testing using Selenium
 /Parabank_Load_Test                 # Load testing using JMeter
 /Parabank_Stress_Test               # Stress testing using JMeter
+/Parabank_Automated_Functional_Test # Automated functional testing using Selenium
 /reports                            # Test execution reports
 ```
 ```
-/Parabank_APIs_Test                 # API testing using Postman
-├── Parabank_APIs_Test.postman_collection.json
-├── Parabank_APIs_Test.postman_environment.json
-├── Parabank_APIs_Test.postman_test_run.html
+/Parabank_APIs_Test
+      ├── Parabank_APIs_Test.postman.json
+      ├── Parabank_APIs_Test.postman_test_run.json
+      └── Parabank_APIs_Test.postman_test_run.html
 
-/Parabank_Automated_Functional_Test # Automated functional testing using Selenium
-├── src/
-│   └── main/
-│       └── java/
-│           └── parabank/
-│               ├── pages/
-│               ├── tests/
-│               └── utils/
-├── testng.xml
-├── screenshots/
-│   └── (test execution screenshots)
+/Parabank_Load_Test
+      ├── Parabank_Load_Test.jmx
+      ├── parabank_Load_Test-Results.csv
+      ├── Parabank_Load_Test-enhanced_results.xlsx
+      └──Graphs/
+          ├── response_by_request_plot_en.png
+          ├── response_vs_users_plot_en.png
+          └── ...more visual reports
 
-/Parabank_Load_Test                 # Load testing using JMeter
-├── Parabank_Load_Test.jmx
-├── Parabank_Load_Test-Results.csv
-├── Parabank_Load_Test-enhanced_results.xlsx
-├── Graphs/
-│   ├── ResponseTimeGraph.png
-│   ├── ThroughputGraph.png
-│   └── ...more visual reports
+/Parabank_Stress_Test
+      ├── Parabank_Stress_Test.jmx
+      ├── Parabank_Stress_Test-Result.csv
+      ├── Parabank_Stress_Test-e_result.txt
+      └── Graphs/
+          ├── active_users_over_time.png
+          ├── error_distribution.png
+          └── ...more visual reports
 
-/Parabank_Stress_Test               # Stress testing using JMeter
-├── Parabank_Stress_Test.jmx
-├── Parabank_Stress_Test-Results.csv
-├── Parabank_Stress_Test-enhanced_results.xlsx
-├── Graphs/
-│   ├── ErrorRateGraph.png
-│   ├── CPU_UsageGraph.png
-│   └── ...more visual reports
+/Parabank_Automated_Functional_Test
+      ├── Automated_Test/
+      │           └── parabank/
+      │                    └── src/
+      │                    │    ├── parabank/
+      │                    │    │         └── pages/
+      │                    │    │               └── ...pages - java files
+      │                    │    └── parabank_tests/
+      │                    │              └── tests/
+      │                    │                    └── ...tests - java files
+      │                    ├── pom.xml
+      │                    ├── Run-testNg.xml
+      │                    └── test_data.xlsx
+      ├── Screenshots For Passed and Failed Tests/
+      │   ├── PASSED/
+      │   │   └── ...screenshots for passed tests
+      │   └── FAILED/
+      │       └── ...screenshots for failed tests
+      ├── Parabank_Automated_Functional_Test-Report.html
+      └── Graphs.png
 
-/reports                            # Test execution reports for all modules
-├── FunctionalTest_Report.html
-├── APIs_Test_Report.html
-├── LoadTest_Report.xlsx
-└── StressTest_Report.xlsx
+/reports
+      ├── Parabank_APIs_Test_Report.md
+      ├── Parabank_Load_Test_Report.md
+      ├── Parabank_Stress_Test_Report.md
+      └── Parabank_Automated_Functional_Test_Report.md
 ```
 
 ## License
