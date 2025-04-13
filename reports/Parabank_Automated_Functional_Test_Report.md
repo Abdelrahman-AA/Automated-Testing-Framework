@@ -15,12 +15,10 @@ This report documents the automated functional tests performed on the [Parabank]
 
 Here are direct links to key resources within the project repository:
 
-- 📁 [Test Files (Test Classes & Methods)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Automated_Test/parabank)
-- 📄 [HTML Test Report](https://abdelrahman-aa.github.io/Automated-Testing-Framework/Parabank_Automated_Functional_Test//Parabank_Automated_Functional_Test-Report.html)
-- 🖼️ [Passed Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/PASSED)
-- ❌ [Failed Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/FAILED)
-- 📈 [Graphs & Visual Analysis](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Automated_Functional_Test/Graphs.png)
-
+- 📁 [JMeter Load Test Files](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/Parabank_Load_Test.jmx)
+- 📄 [Load Test Results (CSV)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/Parabank_Load_Test-Results.csv)
+- 📄 [Enhanced Test Results (Excel)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/Parabank_Load_Test-enhanced_results.xlsx)
+- 📈 [Performance Graphs & Visual Analysis](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Load_Test/Graphs)
 
 ---
 
