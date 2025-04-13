@@ -54,20 +54,14 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 - **GitHub Issues:** Managing project-related tasks and bugs.
 
 ## Repository Structure
+
 ```
-/Parabank_APIs_Test                 # API testing using Postman
-/Parabank_Load_Test                 # Load testing using JMeter
-/Parabank_Stress_Test               # Stress testing using JMeter
-/Parabank_Automated_Functional_Test # Automated functional testing using Selenium
-/reports                            # Test execution reports
-```
-```
-/Parabank_APIs_Test
+/Parabank_APIs_Test                        # API testing using Postman
       ├── Parabank_APIs_Test.postman.json
       ├── Parabank_APIs_Test.postman_test_run.json
       └── Parabank_APIs_Test.postman_test_run.html
 
-/Parabank_Load_Test
+/Parabank_Load_Test                        # Load testing using JMeter
       ├── Parabank_Load_Test.jmx
       ├── parabank_Load_Test-Results.csv
       ├── Parabank_Load_Test-enhanced_results.xlsx
@@ -76,7 +70,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
           ├── response_vs_users_plot_en.png
           └── ...more visual reports
 
-/Parabank_Stress_Test
+/Parabank_Stress_Test                      # Stress testing using JMeter
       ├── Parabank_Stress_Test.jmx
       ├── Parabank_Stress_Test-Result.csv
       ├── Parabank_Stress_Test-e_result.txt
@@ -85,7 +79,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
           ├── error_distribution.png
           └── ...more visual reports
 
-/Parabank_Automated_Functional_Test
+/Parabank_Automated_Functional_Test        # Automated functional testing using Selenium
       ├── Automated_Test/
       │           └── parabank/
       │                    └── src/
@@ -106,7 +100,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
       ├── Parabank_Automated_Functional_Test-Report.html
       └── Graphs.png
 
-/reports
+/reports                                   # Test execution reports
       ├── Parabank_APIs_Test_Report.md
       ├── Parabank_Load_Test_Report.md
       ├── Parabank_Stress_Test_Report.md
