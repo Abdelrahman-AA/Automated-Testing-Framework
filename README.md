@@ -34,6 +34,11 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 - **Stress Testing:** Evaluating system performance under extreme user loads to find the breaking point.
   - [📊 View Stress Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_Stress_Test_Report.md)
 
+       - 📁 [JMeter Stress Test Files](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Stress_Test/Parabank_Stress_Test.jmx)
+       - 📄 [Stress Test Results (CSV)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Stress_Test/Parabank_Stress_Test-Result.csv)
+       - 📄 [Enhanced Test Results (txt)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Stress_Test/Parabank_Stress_Test-e_result.txt)
+       - 📈 [Performance Graphs & Visual Analysis](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Stress_Test/Graphs)
+
 ### 3. Automated Testing (Selenium)
 - **Automated Functional Tests:** Implementing scripts for key workflows.
   - [📊 View Parabank Automated Functional Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_Automated_Functional_Test_Report.md)
