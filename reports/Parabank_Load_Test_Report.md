@@ -12,7 +12,7 @@
 
 ---
 
- ## Project Resources
+## Project Resources
 
   Here are direct links to key resources within the project repository:
   
@@ -23,7 +23,7 @@
 
 ---
 
-## 2. Test Scenario
+## Test Scenario
 Each user executed the following sequence of requests:
 1. Retrieve `JSESSIONID`
 2. Register a new user
