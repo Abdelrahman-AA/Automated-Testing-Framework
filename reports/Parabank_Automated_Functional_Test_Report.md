@@ -57,7 +57,8 @@ Here are direct links to key resources within the project repository:
 1. Navigate to the ParaBank homepage  
 2. Verify that the homepage loads successfully  
 3. Click on "Register"  
-4. Verify that the registration page loads successfully  
+4. Verify that the registration page loads successfully
+   
 **Screenshot**:
 <p align="center">
   <img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/PASSED/Scenario_1_CheckWebsiteIsReadyForTest_openHomePage_PASSED_20250412_200234.png" alt="Graphs" width="500" style="display:inline-block; margin-right: 10px;">
