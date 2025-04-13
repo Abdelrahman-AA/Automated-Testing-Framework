@@ -61,6 +61,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 /Parabank_Stress_Test               # Stress testing using JMeter
 /reports                            # Test execution reports
 ```
+```
 /Parabank_APIs_Test                 # API testing using Postman
 ├── Parabank_APIs_Test.postman_collection.json
 ├── Parabank_APIs_Test.postman_environment.json
@@ -101,7 +102,7 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 ├── APIs_Test_Report.html
 ├── LoadTest_Report.xlsx
 └── StressTest_Report.xlsx
-
+```
 
 ## License
 This project is licensed under the Team License - see the [LICENSE](LICENSE.md) file for details.
