@@ -26,6 +26,11 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 - **Load Testing:** Evaluating system performance under high user load.
   - [📊 View Load Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_Load_Test_Report.md)
 
+       - 📁 [JMeter Load Test Files](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/Parabank_Load_Test.jmx)
+       - 📄 [Load Test Results (CSV)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/Parabank_Load_Test-Results.csv)
+       - 📄 [Enhanced Test Results (Excel)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Load_Test/Parabank_Load_Test-enhanced_results.xlsx)
+       - 📈 [Performance Graphs & Visual Analysis](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Load_Test/Graphs)
+
 - **Stress Testing:** Evaluating system performance under extreme user loads to find the breaking point.
   - [📊 View Stress Test Report](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/reports/Parabank_Stress_Test_Report.md)
 
