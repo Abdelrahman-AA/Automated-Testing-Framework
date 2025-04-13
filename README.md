@@ -55,11 +55,53 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 
 ## Repository Structure
 ```
-/ Parabank_APIs_Test		  # Postman collections for API testing
-/ performance-tests 		  # Load testing scripts and results
-/ automation          		  # Selenium scripts for automated testing
-/ reports             		  # Test execution reports
+/Parabank_APIs_Test                 # API testing using Postman
+/Parabank_Automated_Functional_Test # Automated functional testing using Selenium
+/Parabank_Load_Test                 # Load testing using JMeter
+/Parabank_Stress_Test               # Stress testing using JMeter
+/reports                            # Test execution reports
 ```
+/Parabank_APIs_Test                 # API testing using Postman
+├── Parabank_APIs_Test.postman_collection.json
+├── Parabank_APIs_Test.postman_environment.json
+├── Parabank_APIs_Test.postman_test_run.html
+
+/Parabank_Automated_Functional_Test # Automated functional testing using Selenium
+├── src/
+│   └── main/
+│       └── java/
+│           └── parabank/
+│               ├── pages/
+│               ├── tests/
+│               └── utils/
+├── testng.xml
+├── screenshots/
+│   └── (test execution screenshots)
+
+/Parabank_Load_Test                 # Load testing using JMeter
+├── Parabank_Load_Test.jmx
+├── Parabank_Load_Test-Results.csv
+├── Parabank_Load_Test-enhanced_results.xlsx
+├── Graphs/
+│   ├── ResponseTimeGraph.png
+│   ├── ThroughputGraph.png
+│   └── ...more visual reports
+
+/Parabank_Stress_Test               # Stress testing using JMeter
+├── Parabank_Stress_Test.jmx
+├── Parabank_Stress_Test-Results.csv
+├── Parabank_Stress_Test-enhanced_results.xlsx
+├── Graphs/
+│   ├── ErrorRateGraph.png
+│   ├── CPU_UsageGraph.png
+│   └── ...more visual reports
+
+/reports                            # Test execution reports for all modules
+├── FunctionalTest_Report.html
+├── APIs_Test_Report.html
+├── LoadTest_Report.xlsx
+└── StressTest_Report.xlsx
+
 
 ## License
 This project is licensed under the Team License - see the [LICENSE](LICENSE.md) file for details.
