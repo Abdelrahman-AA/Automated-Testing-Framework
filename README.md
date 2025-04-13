@@ -81,17 +81,17 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 
 /Parabank_Automated_Functional_Test        # Automated functional testing using Selenium
       ├── Automated_Test/
-      │           └── parabank/
-      │                    └── src/
-      │                    │    ├── parabank/
-      │                    │    │         └── pages/
-      │                    │    │               └── ...pages - java files
-      │                    │    └── parabank_tests/
-      │                    │              └── tests/
-      │                    │                    └── ...tests - java files
-      │                    ├── pom.xml
-      │                    ├── Run-testNg.xml
-      │                    └── test_data.xlsx
+      │    └── parabank/
+      │         ├── src/
+      │         │    ├── parabank/
+      │         │    │    └── pages/
+      │         │    │         └── ...pages - java files
+      │         │    └── parabank_tests/
+      │         │         └── tests/
+      │         │              └── ...tests - java files
+      │         ├── pom.xml
+      │         ├── Run-testNg.xml
+      │         └── test_data.xlsx
       ├── Screenshots For Passed and Failed Tests/
       │   ├── PASSED/
       │   │   └── ...screenshots for passed tests
