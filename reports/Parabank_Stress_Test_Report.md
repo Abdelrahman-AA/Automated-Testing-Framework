@@ -1,6 +1,8 @@
 # Stress Testing Report for ParaBank Website
 
-## 1. Introduction
+---
+
+## Introduction
 
 **Test Objective:** Assess the performance and stability of the ParaBank website under high stress conditions, simulating large-scale concurrent user activity.
 
@@ -14,8 +16,20 @@
 
 **Testing Tool:** Apache JMeter
 
+---
 
-## 2. Test Scenario
+## Project Resources
+
+  Here are direct links to key resources within the project repository:
+  
+   - 📁 [JMeter Stress Test Files](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Stress_Test/Parabank_Stress_Test.jmx)
+   - 📄 [Stress Test Results (CSV)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Stress_Test/Parabank_Stress_Test-Result.csv)
+   - 📄 [Enhanced Test Results (txt)](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Stress_Test/Parabank_Stress_Test-e_result.txt)
+   - 📈 [Performance Graphs & Visual Analysis](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Stress_Test/Graphs)
+
+---
+
+## Test Scenario
 
 Each user executed the following sequence of requests:
 
@@ -35,7 +49,7 @@ Each user executed the following sequence of requests:
 14. Log out
 
 
-## 3. Test Results
+## Test Results
 
 ### Overall Request Success Rate:
 - **Success Rate:** 82.23%
@@ -86,8 +100,9 @@ Each user executed the following sequence of requests:
 - **Users with no failures:** 814 users
 - **Average Execution Time for Completed Users:** 32.57 seconds
 
+---
 
-## 4. Observations
+## Observations
 
 - The system showed **acceptable performance** under moderate load, but **response times increased noticeably** under higher loads, with:
   - **Average Response Time:** 2661.89 ms  
@@ -115,8 +130,9 @@ Each user executed the following sequence of requests:
   - `Get JSESSIONID`: 99.09% success
   - `account balance`: 95.36% success
 
+---
 
-## 5. Visualized Data
+## Visualized Data
 
 - **Active Users Over Time**: A line chart showing how the number of active users varied throughout the test duration.  
 <p align="center">
@@ -181,8 +197,9 @@ Each user executed the following sequence of requests:
 
 <br>
 
+---
 
-## 6. Recommendations
+## Recommendations
 
 1. **Investigate critical failure points**, particularly in the `register`, `create account`, and `billpay` requests, which showed success rates below 75%. These endpoints are crucial and need reliability improvements under load.
 
@@ -198,8 +215,9 @@ Each user executed the following sequence of requests:
 
 7. **Ensure test data consistency and isolation**, particularly for operations like `create account` or `transfer`, where dependencies between data may cause conflicts or unexpected behavior during concurrent access.
 
+---
 
-## 7. Conclusion
+## Conclusion
 
 The ParaBank system showed moderate resilience under stress, successfully handling over 61,000 requests with an overall success rate of **82.23%**. While core operations such as login, balance inquiries, and logout maintained high success rates, several critical functionalities—particularly `register`, `create account`, `deposit`, and `billpay`—suffered from substantial failure rates ranging between **25% to 45%**.
 
