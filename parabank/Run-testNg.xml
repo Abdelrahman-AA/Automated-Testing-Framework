@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParaBankSuite">
+
+    <listeners>
+        <listener class-name="tests.D_2_TestListener" />
+        <listener class-name="tests.D_4_ExtentTestListener"/>
+    </listeners>
+    
+    <test name="Scenario Tests">
+        <classes>
+            <class name="tests.Scenario_1_CheckWebsiteIsReadyForTest"/>
+            <class name="tests.Scenario_2_RegisterNewUserAndLogOut"/>
+            <class name="tests.Scenario_3_LoginAndLogoutFromHomePage"/>
+            <class name="tests.Scenario_4_ForgetLoginInformation"/>
+            <class name="tests.Scenario_5_UpdateUserProfileAndVerifyChanges"/>
+            <class name="tests.Scenario_6_OpenNew_CHECKING_Accounts"/>
+            <class name="tests.Scenario_7_OpenNew_SAVINGS_Accounts"/>
+            <class name="tests.Scenario_8_BillPaymentProcess"/>
+            <class name="tests.Scenario_9_TransferAmountAndVerifyAccountsOverviewAndDetails"/>
+            <class name="tests.Scenario_10_SearchTransactionsById"/>
+            <class name="tests.Scenario_11_SearchTransactionsByTransactionDate"/>
+            <class name="tests.Scenario_12_SearchTransactionsByDateRange"/>
+            <class name="tests.Scenario_13_SearchTransactionsByTransactionAmount"/>
+            <class name="tests.Scenario_14_RequestLoanAndVerifyApproval"/>
+        </classes>
+    </test>
+
+</suite>
