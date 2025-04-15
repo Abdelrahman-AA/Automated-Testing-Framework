@@ -51,8 +51,8 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 
 ### 4. Continuous Integration (CI) and Continuous Delivery (CD) with (Jnkins)
 - **Automated Build, Testing, and Reporting:** Setting up Jenkins pipelines for continuous integration, automated test execution, and generating detailed test reports.
-  - **Test Reports and Field Test Screenshots:** View reports generated for automated test runs and field test results and screenshots captured during field tests for better analysis..
-    - [📊 View Automated Test Reports and Field Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Jenkins_Results)
+  - **Test Reports and Field Test Screenshots:** View reports generated for automated test runs and field test results and screenshots captured during field tests for better analysis..    - [📊 View Automated Test Reports and Field Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Jenkins_Results)
+
 
 
 ## Documentation
