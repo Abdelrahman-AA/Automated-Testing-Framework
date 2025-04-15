@@ -49,9 +49,14 @@ This repository contains a comprehensive testing framework for the **Parabank** 
        - ❌ [Failed Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Parabank_Automated_Functional_Test/Screenshots%20For%20Passed%20and%20Failed%20Tests/FAILED)
        - 📈 [Graphs & Visual Analysis](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/blob/main/Parabank_Automated_Functional_Test/Graphs.png)
 
+### 4. Continuous Integration (CI) and Continuous Delivery (CD) with (Jnkins)
+- **Automated Build, Testing, and Reporting:** Setting up Jenkins pipelines for continuous integration, automated test execution, and generating detailed test reports.
+  - **Test Reports and Field Test Screenshots:** View reports generated for automated test runs and field test results and screenshots captured during field tests for better analysis..
+    - [📊 View Automated Test Reports and Field Test Screenshots](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/tree/main/Jenkins_Results)
+
 
 ## Documentation
-- **GitHub Issues:** Managing project-related tasks and bugs.
+- **GitHub Repo:** Managing project-related tasks and bugs.
 
 ## Repository Structure
 
