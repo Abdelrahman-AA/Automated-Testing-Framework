@@ -12,7 +12,7 @@
 
 **User Distribution:**
 - **Start with 1,000 users**: Gradually ramped up over 300 seconds, each with a randomized delay between 1 and 1.5 seconds per request.
-- **Increment of 500 users every 60 seconds**, with start points for each new user distributed over 150 seconds, until reaching 5,000 users.
+- **Increment of 500 users every 60 seconds**, with start points for each new user distributed over 240 seconds, until reaching 5,000 users.
 
 **Testing Tool:** Apache JMeter
 
