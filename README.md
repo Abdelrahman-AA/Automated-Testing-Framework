@@ -58,6 +58,8 @@ This repository contains a comprehensive testing framework for the **Parabank** 
 
 ## Documentation
 - **GitHub Repo:** Managing project-related tasks and bugs.
+- **Jira Issues:** To track Bugs and Issues.
+  - [📊 View Issues tracked by Jira.](https://github.com/Abdelrahman-AA/Automated-Testing-Framework/JIRA/Jira.html)
 
 ## Repository Structure
 
@@ -111,6 +113,10 @@ This repository contains a comprehensive testing framework for the **Parabank** 
       ├── Parabank_Load_Test_Report.md
       ├── Parabank_Stress_Test_Report.md
       └── Parabank_Automated_Functional_Test_Report.md
+
+/JIRA                                      # Issues tracked by Jira
+
+/Jenkins_Results                           # Jenkins CI/CD Results
 ```
 
 ## License
