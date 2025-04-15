@@ -137,63 +137,63 @@ Each user executed the following sequence of requests:
 
 - **Active Users Over Time**: A line chart showing how the number of active users varied throughout the test duration.  
 <p align="center">
-<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/active_users_over_time.png" alt="Active Users Over Time" width="600">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/Graphs/active_users_over_time.png" alt="Active Users Over Time" width="600">
 </p>
 
 <br>
 
 - **Throughput Over Time**: A line chart indicating the rate of requests handled per second, reflecting system throughput.  
 <p align="center">
-<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/throughput_over_time.png" alt="Throughput Over Time" width="600">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/Graphs/throughput_over_time.png" alt="Throughput Over Time" width="600">
 </p>
 
 <br>
 
 - **Success Rate Over Time**: A line chart displaying the percentage of successful requests over the course of the test.  
 <p align="center">
-<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/success_rate_over_time.png" alt="Success Rate Over Time" width="600">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/Graphs/success_rate_over_time.png" alt="Success Rate Over Time" width="600">
 </p>
 
 <br>
 
 - **Response Times Over Time**: A line chart visualizing the variation in response times during the test period.  
 <p align="center">
-<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/response_times_over_time.png" alt="Response Times Over Time" width="600">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/Graphs/response_times_over_time.png" alt="Response Times Over Time" width="600">
 </p>
 
 <br>
 
 - **Response Time Distribution**: A bar chart showing how response times were distributed across all requests.  
 <p align="center">
-<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/response_time_distribution.png" alt="Response Time Distribution" width="600">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/Graphs/response_time_distribution.png" alt="Response Time Distribution" width="600">
 </p>
 
 <br>
 
 - **Response Time Statistics**: A summary graph displaying min, max, average, and standard deviation of response times.  
 <p align="center">
-<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/response_time_stats.png" alt="Response Time Statistics" width="600">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/Graphs/response_time_stats.png" alt="Response Time Statistics" width="600">
 </p>
 
 <br>
 
 - **Success Rate by Request Type**: A pie chart comparing success rates across different request types.  
 <p align="center">
-<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/success_rate_by_request.png" alt="Success Rate by Request Type" width="600">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/Graphs/success_rate_by_request.png" alt="Success Rate by Request Type" width="600">
 </p>
 
 <br>
 
 - **Requests by Type**: A bar chart showing the total number of requests made per type or endpoint.  
 <p align="center">
-<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/requests_by_type.png" alt="Requests by Type" width="600">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/Graphs/requests_by_type.png" alt="Requests by Type" width="600">
 </p>
 
 <br>
 
 - **Error Distribution**: A bar chart visualizing the types and counts of errors encountered during the test.  
 <p align="center">
-<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/error_distribution.png" alt="Error Distribution" width="600">
+<img src="https://raw.githubusercontent.com/Abdelrahman-AA/Automated-Testing-Framework/main/Parabank_Stress_Test/Graphs/error_distribution.png" alt="Error Distribution" width="600">
 </p>
 
 <br>
