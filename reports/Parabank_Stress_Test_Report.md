@@ -109,7 +109,7 @@ Each user executed the following sequence of requests:
   - **Average Response Time:** 2661.89 ms  
   - **Maximum Response Time:** 33,100 ms  
 
-- **Significant failure rates** were observed in several request types:
+- **Significant Success rates** were observed in several request types:
   - `create account`: ~54–55% success rate
   - `register`: 64.02% success rate
   - `deposit`, `transfer`, `billpay`: success rates in the ~73% range
