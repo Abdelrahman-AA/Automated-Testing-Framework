@@ -1,0 +1,3766 @@
+{
+	"info": {
+		"_postman_id": "19f8dc6d-721f-48e5-b620-542bd3f6d67b",
+		"name": "Parabank_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40218832",
+		"_collection_link": "https://depi-team-0182.postman.co/workspace/DEPI-TEAM~63d59f5a-40db-4f8f-857a-45005d122c7a/collection/40218832-19f8dc6d-721f-48e5-b620-542bd3f6d67b?action=share&source=collection_link&creator=40218832"
+	},
+	"item": [
+		{
+			"name": "Parabank_Get_JSESSIONID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Extract JSESSIONID and store it\", function () {\r",
+							"    var cookieHeader = pm.response.headers.get(\"Set-Cookie\");\r",
+							"    if (cookieHeader) {\r",
+							"        var jsessionid = cookieHeader.match(/JSESSIONID=([^;]+)/);\r",
+							"        if (jsessionid) {\r",
+							"            pm.globals.set(\"JSESSIONID\", jsessionid[1]);\r",
+							"            console.log(\"JSESSIONID stored: \" + jsessionid[1]);\r",
+							"        }\r",
+							"    }\r",
+							"});\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/register.htm",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"register.htm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Register_1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var runNumber = pm.globals.get(\"runNumber\") || 1;\r",
+							"var username = \"Test_\" + (\"000\" + runNumber).slice(-3);\r",
+							"pm.globals.set(\"customer.username\", username);\r",
+							"pm.globals.set(\"runNumber\", runNumber + 1);\r",
+							"console.log(\"Generated Username: \" + username);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify user creation\", function () {\r",
+							"    var expectedUsername = pm.globals.get(\"customer.username\");\r",
+							"    var responseBody = pm.response.text();\r",
+							"\r",
+							"    var regex = new RegExp(`<h1 class=\"title\">\\\\s*Welcome\\\\s*${expectedUsername}\\\\s*</h1>`, \"m\");\r",
+							"    \r",
+							"    pm.expect(responseBody).to.match(regex);\r",
+							"\r",
+							"    console.log(`User created successfully: ${expectedUsername}`);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{JSESSIONID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer.firstName",
+							"value": "{{customer.firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.lastName",
+							"value": "{{customer.lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.street",
+							"value": "{{customer.address.street}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.city",
+							"value": "{{customer.address.city}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.state",
+							"value": "{{customer.address.state}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.zipCode",
+							"value": "{{customer.address.zipCode}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.phoneNumber",
+							"value": "{{customer.phoneNumber}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.ssn",
+							"value": "{{customer.ssn}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.username",
+							"value": "{{customer.username}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.password",
+							"value": "{{customer.password}}",
+							"type": "text"
+						},
+						{
+							"key": "repeatedPassword",
+							"value": "{{customer.password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/register.htm",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"register.htm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Login1_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Login successfully\", function () {\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response).to.have.property(\"id\");\r",
+							"    pm.expect(response.id).to.be.a(\"number\");\r",
+							"\r",
+							"    pm.globals.set(\"customer_id\", response.id);\r",
+							"    \r",
+							"    console.log(`Login successfully, Customer ID: ${response.id}`);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate API Response Against Expected Inputs\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"\r",
+							"    let expectedData = {\r",
+							"        firstName: pm.variables.get(\"customer.firstName\"),\r",
+							"        lastName: pm.variables.get(\"customer.lastName\"),\r",
+							"        address: {\r",
+							"            street: pm.variables.get(\"customer.address.street\"),\r",
+							"            city: pm.variables.get(\"customer.address.city\"),\r",
+							"            state: pm.variables.get(\"customer.address.state\"),\r",
+							"            zipCode: pm.variables.get(\"customer.address.zipCode\")\r",
+							"        },\r",
+							"        phoneNumber: pm.variables.get(\"customer.phoneNumber\"),\r",
+							"        ssn: pm.variables.get(\"customer.ssn\")\r",
+							"    };\r",
+							"\r",
+							"    pm.expect(response.firstName).to.eql(expectedData.firstName, \"First Name Mismatch\");\r",
+							"    pm.expect(response.lastName).to.eql(expectedData.lastName, \"Last Name Mismatch\");\r",
+							"    pm.expect(response.address.street).to.eql(expectedData.address.street, \"Street Mismatch\");\r",
+							"    pm.expect(response.address.city).to.eql(expectedData.address.city, \"City Mismatch\");\r",
+							"    pm.expect(response.address.state).to.eql(expectedData.address.state, \"State Mismatch\");\r",
+							"    pm.expect(response.address.zipCode).to.eql(expectedData.address.zipCode, \"Zip Code Mismatch\");\r",
+							"    pm.expect(response.phoneNumber).to.eql(expectedData.phoneNumber, \"Phone Number Mismatch\");\r",
+							"    pm.expect(response.ssn).to.eql(expectedData.ssn, \"SSN Mismatch\");\r",
+							"\r",
+							"    console.log(\"Validation Passed\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							" pm.test(\"Response time is below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/login/{{customer.username}}/{{customer.password}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"login",
+						"{{customer.username}}",
+						"{{customer.password}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CleanDB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/cleanDB",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"cleanDB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Login1_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response message is 'Invalid username and/or password'\", function () {\r",
+							"    let responseText = pm.response.text();\r",
+							"    pm.expect(responseText).to.equal(\"Invalid username and/or password\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							" pm.test(\"Response time is below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/login/{{customer.username}}/{{customer.password}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"login",
+						"{{customer.username}}",
+						"{{customer.password}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Register_2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var runNumber = pm.globals.get(\"runNumber\") || 1;\r",
+							"var username = \"Test_\" + (\"000\" + runNumber).slice(-3);\r",
+							"pm.globals.set(\"customer.username\", username);\r",
+							"pm.globals.set(\"runNumber\", runNumber + 1);\r",
+							"console.log(\"Generated Username: \" + username);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify user creation\", function () {\r",
+							"    var expectedUsername = pm.globals.get(\"customer.username\");\r",
+							"    var responseBody = pm.response.text();\r",
+							"\r",
+							"    var regex = new RegExp(`<h1 class=\"title\">\\\\s*Welcome\\\\s*${expectedUsername}\\\\s*</h1>`, \"m\");\r",
+							"    \r",
+							"    pm.expect(responseBody).to.match(regex);\r",
+							"\r",
+							"    console.log(`User created successfully: ${expectedUsername}`);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{JSESSIONID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer.firstName",
+							"value": "{{customer.firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.lastName",
+							"value": "{{customer.lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.street",
+							"value": "{{customer.address.street}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.city",
+							"value": "{{customer.address.city}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.state",
+							"value": "{{customer.address.state}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.zipCode",
+							"value": "{{customer.address.zipCode}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.phoneNumber",
+							"value": "{{customer.phoneNumber}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.ssn",
+							"value": "{{customer.ssn}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.username",
+							"value": "{{customer.username}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.password",
+							"value": "{{customer.password}}",
+							"type": "text"
+						},
+						{
+							"key": "repeatedPassword",
+							"value": "{{customer.password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/register.htm",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"register.htm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Login2_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Login successfully\", function () {\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response).to.have.property(\"id\");\r",
+							"    pm.expect(response.id).to.be.a(\"number\");\r",
+							"\r",
+							"    pm.globals.set(\"customer_id\", response.id);\r",
+							"    \r",
+							"    console.log(`Login successfully, Customer ID: ${response.id}`);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate API Response Against Expected Inputs\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"\r",
+							"    let expectedData = {\r",
+							"        firstName: pm.variables.get(\"customer.firstName\"),\r",
+							"        lastName: pm.variables.get(\"customer.lastName\"),\r",
+							"        address: {\r",
+							"            street: pm.variables.get(\"customer.address.street\"),\r",
+							"            city: pm.variables.get(\"customer.address.city\"),\r",
+							"            state: pm.variables.get(\"customer.address.state\"),\r",
+							"            zipCode: pm.variables.get(\"customer.address.zipCode\")\r",
+							"        },\r",
+							"        phoneNumber: pm.variables.get(\"customer.phoneNumber\"),\r",
+							"        ssn: pm.variables.get(\"customer.ssn\")\r",
+							"    };\r",
+							"\r",
+							"    pm.expect(response.firstName).to.eql(expectedData.firstName, \"First Name Mismatch\");\r",
+							"    pm.expect(response.lastName).to.eql(expectedData.lastName, \"Last Name Mismatch\");\r",
+							"    pm.expect(response.address.street).to.eql(expectedData.address.street, \"Street Mismatch\");\r",
+							"    pm.expect(response.address.city).to.eql(expectedData.address.city, \"City Mismatch\");\r",
+							"    pm.expect(response.address.state).to.eql(expectedData.address.state, \"State Mismatch\");\r",
+							"    pm.expect(response.address.zipCode).to.eql(expectedData.address.zipCode, \"Zip Code Mismatch\");\r",
+							"    pm.expect(response.phoneNumber).to.eql(expectedData.phoneNumber, \"Phone Number Mismatch\");\r",
+							"    pm.expect(response.ssn).to.eql(expectedData.ssn, \"SSN Mismatch\");\r",
+							"\r",
+							"    console.log(\"Validation Passed\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							" pm.test(\"Response time is below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/login/{{customer.username}}/{{customer.password}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"login",
+						"{{customer.username}}",
+						"{{customer.password}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_InitializeDB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/initializeDB",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"initializeDB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Login2_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response message is 'Invalid username and/or password'\", function () {\r",
+							"    let responseText = pm.response.text();\r",
+							"    pm.expect(responseText).to.equal(\"Invalid username and/or password\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							" pm.test(\"Response time is below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/login/{{customer.username}}/{{customer.password}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"login",
+						"{{customer.username}}",
+						"{{customer.password}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_ShutdownJmsListener",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/shutdownJmsListener",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"shutdownJmsListener"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_StartupJmsListener",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/startupJmsListener",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"startupJmsListener"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Register_F",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var runNumber = pm.globals.get(\"runNumber\") || 1;\r",
+							"var username = \"Test_\" + (\"000\" + runNumber).slice(-3);\r",
+							"pm.globals.set(\"customer.username\", username);\r",
+							"pm.globals.set(\"runNumber\", runNumber + 1);\r",
+							"console.log(\"Generated Username: \" + username);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify user creation\", function () {\r",
+							"    var expectedUsername = pm.globals.get(\"customer.username\");\r",
+							"    var responseBody = pm.response.text();\r",
+							"\r",
+							"    var regex = new RegExp(`<h1 class=\"title\">\\\\s*Welcome\\\\s*${expectedUsername}\\\\s*</h1>`, \"m\");\r",
+							"    \r",
+							"    pm.expect(responseBody).to.match(regex);\r",
+							"\r",
+							"    console.log(`User created successfully: ${expectedUsername}`);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{JSESSIONID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer.firstName",
+							"value": "{{customer.firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.lastName",
+							"value": "{{customer.lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.street",
+							"value": "{{customer.address.street}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.city",
+							"value": "{{customer.address.city}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.state",
+							"value": "{{customer.address.state}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.zipCode",
+							"value": "{{customer.address.zipCode}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.phoneNumber",
+							"value": "{{customer.phoneNumber}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.ssn",
+							"value": "{{customer.ssn}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.username",
+							"value": "{{customer.username}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.password",
+							"value": "{{customer.password}}",
+							"type": "text"
+						},
+						{
+							"key": "repeatedPassword",
+							"value": "{{customer.password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/register.htm",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"register.htm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Register_WithRName",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"This username already exists\", function () {\r",
+							"    var responseBody = pm.response.text();\r",
+							"\r",
+							"    var regex = /<span id=\"customer\\.username\\.errors\" class=\"error\">This username already exists\\.<\\/span>/;\r",
+							"\r",
+							"    pm.expect(responseBody).to.match(regex);\r",
+							"\r",
+							"    console.log(`Username already exists`);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{JSESSIONID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer.firstName",
+							"value": "{{customer.firstName}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.lastName",
+							"value": "{{customer.lastName}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.street",
+							"value": "{{customer.address.street}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.city",
+							"value": "{{customer.address.city}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.state",
+							"value": "{{customer.address.state}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.address.zipCode",
+							"value": "{{customer.address.zipCode}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.phoneNumber",
+							"value": "{{customer.phoneNumber}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.ssn",
+							"value": "{{customer.ssn}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.username",
+							"value": "{{customer.username}}",
+							"type": "text"
+						},
+						{
+							"key": "customer.password",
+							"value": "{{customer.password}}",
+							"type": "text"
+						},
+						{
+							"key": "repeatedPassword",
+							"value": "{{customer.password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/register.htm",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"register.htm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Login_F",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Login successfully\", function () {\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response).to.have.property(\"id\");\r",
+							"    pm.expect(response.id).to.be.a(\"number\");\r",
+							"\r",
+							"    pm.globals.set(\"customer_id\", response.id);\r",
+							"    \r",
+							"    console.log(`Login successfully, Customer ID: ${response.id}`);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate API Response Against Expected Inputs\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"\r",
+							"    let expectedData = {\r",
+							"        firstName: pm.variables.get(\"customer.firstName\"),\r",
+							"        lastName: pm.variables.get(\"customer.lastName\"),\r",
+							"        address: {\r",
+							"            street: pm.variables.get(\"customer.address.street\"),\r",
+							"            city: pm.variables.get(\"customer.address.city\"),\r",
+							"            state: pm.variables.get(\"customer.address.state\"),\r",
+							"            zipCode: pm.variables.get(\"customer.address.zipCode\")\r",
+							"        },\r",
+							"        phoneNumber: pm.variables.get(\"customer.phoneNumber\"),\r",
+							"        ssn: pm.variables.get(\"customer.ssn\")\r",
+							"    };\r",
+							"\r",
+							"    pm.expect(response.firstName).to.eql(expectedData.firstName, \"First Name Mismatch\");\r",
+							"    pm.expect(response.lastName).to.eql(expectedData.lastName, \"Last Name Mismatch\");\r",
+							"    pm.expect(response.address.street).to.eql(expectedData.address.street, \"Street Mismatch\");\r",
+							"    pm.expect(response.address.city).to.eql(expectedData.address.city, \"City Mismatch\");\r",
+							"    pm.expect(response.address.state).to.eql(expectedData.address.state, \"State Mismatch\");\r",
+							"    pm.expect(response.address.zipCode).to.eql(expectedData.address.zipCode, \"Zip Code Mismatch\");\r",
+							"    pm.expect(response.phoneNumber).to.eql(expectedData.phoneNumber, \"Phone Number Mismatch\");\r",
+							"    pm.expect(response.ssn).to.eql(expectedData.ssn, \"SSN Mismatch\");\r",
+							"\r",
+							"    console.log(\"Validation Passed\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							" pm.test(\"Response time is below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/login/{{customer.username}}/{{customer.password}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"login",
+						"{{customer.username}}",
+						"{{customer.password}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_UserByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate API Response Against Expected Inputs\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"\r",
+							"    let expectedData = {\r",
+							"        firstName: pm.variables.get(\"customer.firstName\"),\r",
+							"        lastName: pm.variables.get(\"customer.lastName\"),\r",
+							"        address: {\r",
+							"            street: pm.variables.get(\"customer.address.street\"),\r",
+							"            city: pm.variables.get(\"customer.address.city\"),\r",
+							"            state: pm.variables.get(\"customer.address.state\"),\r",
+							"            zipCode: pm.variables.get(\"customer.address.zipCode\")\r",
+							"        },\r",
+							"        phoneNumber: pm.variables.get(\"customer.phoneNumber\"),\r",
+							"        ssn: pm.variables.get(\"customer.ssn\")\r",
+							"    };\r",
+							"\r",
+							"    pm.expect(response.firstName).to.eql(expectedData.firstName, \"First Name Mismatch\");\r",
+							"    pm.expect(response.lastName).to.eql(expectedData.lastName, \"Last Name Mismatch\");\r",
+							"    pm.expect(response.address.street).to.eql(expectedData.address.street, \"Street Mismatch\");\r",
+							"    pm.expect(response.address.city).to.eql(expectedData.address.city, \"City Mismatch\");\r",
+							"    pm.expect(response.address.state).to.eql(expectedData.address.state, \"State Mismatch\");\r",
+							"    pm.expect(response.address.zipCode).to.eql(expectedData.address.zipCode, \"Zip Code Mismatch\");\r",
+							"    pm.expect(response.phoneNumber).to.eql(expectedData.phoneNumber, \"Phone Number Mismatch\");\r",
+							"    pm.expect(response.ssn).to.eql(expectedData.ssn, \"SSN Mismatch\");\r",
+							"\r",
+							"    console.log(\"Validation Passed\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/customers/{{customer_id}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"customers",
+						"{{customer_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_cusomerUpdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successfully updated customer profile\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Successfully updated customer profile\");\r",
+							"\r",
+							"    console.log(`Successfully updated customer profile)`);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/customers/update/{{customer_id}}?firstName={{customer.firstName}}2&lastName={{customer.lastName}}2&street={{customer.address.street}}2&city={{customer.address.city}}2&state={{customer.address.state}}2&zipCode={{customer.address.zipCode}}2&phoneNumber={{customer.phoneNumber}}2&ssn={{customer.ssn}}2&username={{customer.username}}2&password={{customer.password}}2",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"customers",
+						"update",
+						"{{customer_id}}"
+					],
+					"query": [
+						{
+							"key": "firstName",
+							"value": "{{customer.firstName}}2"
+						},
+						{
+							"key": "lastName",
+							"value": "{{customer.lastName}}2"
+						},
+						{
+							"key": "street",
+							"value": "{{customer.address.street}}2"
+						},
+						{
+							"key": "city",
+							"value": "{{customer.address.city}}2"
+						},
+						{
+							"key": "state",
+							"value": "{{customer.address.state}}2"
+						},
+						{
+							"key": "zipCode",
+							"value": "{{customer.address.zipCode}}2"
+						},
+						{
+							"key": "phoneNumber",
+							"value": "{{customer.phoneNumber}}2"
+						},
+						{
+							"key": "ssn",
+							"value": "{{customer.ssn}}2"
+						},
+						{
+							"key": "username",
+							"value": "{{customer.username}}2"
+						},
+						{
+							"key": "password",
+							"value": "{{customer.password}}2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_loginOldUname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Invalid username and/or password\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Invalid username and/or password\");\r",
+							"\r",
+							"    console.log(`successfully (Invalid username and/or password)`);\r",
+							"});\r",
+							"\r",
+							" pm.test(\"Response time is below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/login/{{customer.username}}/{{customer.password}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"login",
+						"{{customer.username}}",
+						"{{customer.password}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_loginNewUName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate API Response Against Expected Inputs\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"\r",
+							"    let expectedData = {\r",
+							"        id: pm.variables.get(\"customer_id\"),\r",
+							"        firstName: pm.variables.get(\"customer.firstName\")+2,\r",
+							"        lastName: pm.variables.get(\"customer.lastName\")+2,\r",
+							"        address: {\r",
+							"            street: pm.variables.get(\"customer.address.street\")+2,\r",
+							"            city: pm.variables.get(\"customer.address.city\")+2,\r",
+							"            state: pm.variables.get(\"customer.address.state\")+2,\r",
+							"            zipCode: pm.variables.get(\"customer.address.zipCode\")+2\r",
+							"        },\r",
+							"        phoneNumber: pm.variables.get(\"customer.phoneNumber\")+2,\r",
+							"        ssn: pm.variables.get(\"customer.ssn\")+2\r",
+							"    };\r",
+							"\r",
+							"    pm.expect(response.id).to.eql(expectedData.id, \"ID Mismatch\");\r",
+							"    pm.expect(response.firstName).to.eql(expectedData.firstName, \"First Name Mismatch\");\r",
+							"    pm.expect(response.lastName).to.eql(expectedData.lastName, \"Last Name Mismatch\");\r",
+							"    pm.expect(response.address.street).to.eql(expectedData.address.street, \"Street Mismatch\");\r",
+							"    pm.expect(response.address.city).to.eql(expectedData.address.city, \"City Mismatch\");\r",
+							"    pm.expect(response.address.state).to.eql(expectedData.address.state, \"State Mismatch\");\r",
+							"    pm.expect(response.address.zipCode).to.eql(expectedData.address.zipCode, \"Zip Code Mismatch\");\r",
+							"    pm.expect(response.phoneNumber).to.eql(expectedData.phoneNumber, \"Phone Number Mismatch\");\r",
+							"    pm.expect(response.ssn).to.eql(expectedData.ssn, \"SSN Mismatch\");\r",
+							"\r",
+							"    console.log(\"Validation Passed\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							" pm.test(\"Response time is below 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/login/{{customer.username}}2/{{customer.password}}2",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"login",
+						"{{customer.username}}2",
+						"{{customer.password}}2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CustomersAccounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// let responseData = pm.response.json(); \r",
+							"// let accountIds = responseData.map(account => account.id);\r",
+							"// pm.environment.set(\"accountIds\", JSON.stringify(accountIds));\r",
+							"pm.test(\"Add the First Account ID and Balance\", function () {\r",
+							"let responseData = pm.response.json(); \r",
+							"pm.environment.set(\"accountId\", responseData[0].id);\r",
+							"// let accountIds = responseData.map(account => account.id);\r",
+							"// pm.environment.set(\"accountIds\", JSON.stringify(accountIds));\r",
+							"pm.environment.set(\"1account1balance\", responseData[0].balance);\r",
+							"    console.log(\"Account ID and Balance Successfully Added\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Add a var 10% Balance\", function () {\r",
+							"let responseData = pm.response.json(); \r",
+							"pm.environment.set(\"10% 1account1balance\", responseData[0].balance/10);\r",
+							"    console.log(\"var 10% Balance Successfully Added\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Add All Acounts ID\", function () {\r",
+							"let responseData = pm.response.json(); \r",
+							"let accountIds = responseData.map(account => account.id);\r",
+							"pm.environment.set(\"accountIds\", JSON.stringify(accountIds));\r",
+							"    console.log(\"All Accounts ID Successfully Added\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/customers/{{customer_id}}/accounts",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"customers",
+						"{{customer_id}}",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Billpay",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate API Response Against Expected Inputs\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"\r",
+							"    let expectedData = {\r",
+							"        amount: pm.variables.get(\"10% 1account1balance\"),\r",
+							"        accountId: pm.variables.get(\"accountId\"),\r",
+							"    };\r",
+							"\r",
+							"    pm.expect(response.payeeName).to.eql(\"PayeeNTest\", \"payeeName Mismatch\");\r",
+							"    pm.expect(response.amount).to.eql(expectedData.amount, \"amount Mismatch\");\r",
+							"    pm.expect(response.accountId).to.eql(expectedData.accountId, \"accountId Mismatch\");\r",
+							"\r",
+							"    console.log(\"Validation Passed\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"PayeeNTest\",\r\n  \"address\": {\r\n    \"street\": \"PayeeStreetTest\",\r\n    \"city\": \"PayeeCityTest\",\r\n    \"state\": \"PayeeStateTest\",\r\n    \"zipCode\": \"PayeeZipCodeTest\"\r\n  },\r\n  \"phoneNumber\": \"PayeePhoneNumberTest\",\r\n  \"accountNumber\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/billpay?accountId={{accountId}}&amount={{10% 1account1balance}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"billpay"
+					],
+					"query": [
+						{
+							"key": "accountId",
+							"value": "{{accountId}}"
+						},
+						{
+							"key": "amount",
+							"value": "{{10% 1account1balance}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CustomersAccounts_AfterBillpay",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Balance After Billpay\", function () {\r",
+							"let responseData = pm.response.json(); \r",
+							"pm.environment.set(\"1account2balance\", responseData[0].balance);\r",
+							"\r",
+							"   let account1Balance = parseFloat(pm.environment.get(\"1account1balance\"));\r",
+							"    let account2Balance = parseFloat(pm.environment.get(\"10% 1account1balance\"));\r",
+							"    let account3Balance = parseFloat(pm.environment.get(\"1account2balance\"));\r",
+							"let expectedBalance = account1Balance - account2Balance;\r",
+							"\r",
+							"pm.expect(account3Balance).to.eql(expectedBalance);\r",
+							"\r",
+							"    console.log(\"Account ID and Balance is Checked\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/customers/{{customer_id}}/accounts",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"customers",
+						"{{customer_id}}",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_ِAccountDeposit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response message contains the correct deposit amount and account number\", function () {\r",
+							"    let responseText = pm.response.text();\r",
+							"    let match = responseText.match(/Successfully deposited \\$(\\d+\\.\\d{2}) to account #(\\d+)/);\r",
+							"\r",
+							"    pm.expect(match).to.not.be.null;\r",
+							"\r",
+							"    if (match) {\r",
+							"        let depositAmount = parseFloat(match[1]);\r",
+							"        let accountNumber = parseInt(match[2]);\r",
+							"\r",
+							"        let n1 = parseFloat(pm.environment.get(\"10% 1account1balance\"));\r",
+							"        let n2 = parseInt(pm.environment.get(\"accountId\"));\r",
+							"\r",
+							"        pm.expect(depositAmount).to.equal(n1);\r",
+							"        pm.expect(accountNumber).to.equal(n2);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/deposit?accountId={{accountId}}&amount={{10% 1account1balance}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"deposit"
+					],
+					"query": [
+						{
+							"key": "accountId",
+							"value": "{{accountId}}"
+						},
+						{
+							"key": "amount",
+							"value": "{{10% 1account1balance}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CAccountBalance_AfterDEposit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains the correct id, customerId, and balance\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    let expectedId = parseInt(pm.environment.get(\"accountId\"));\r",
+							"    let expectedCustomerId = parseInt(pm.globals.get(\"customer_id\"));\r",
+							"    let expectedBalance = parseFloat(pm.environment.get(\"1account1balance\"));\r",
+							"\r",
+							"    pm.expect(responseData.id).to.equal(expectedId);\r",
+							"    pm.expect(responseData.customerId).to.equal(expectedCustomerId);\r",
+							"    pm.expect(responseData.balance).to.equal(expectedBalance);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank//accounts/{{accountId}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"",
+						"accounts",
+						"{{accountId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_AccountWithdraw",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response message contains the correct withdrew amount and account number\", function () {\r",
+							"    let responseText = pm.response.text();\r",
+							"    let match = responseText.match(/Successfully withdrew \\$(\\d+\\.\\d{2}) from account #(\\d+)/);\r",
+							"\r",
+							"    pm.expect(match).to.not.be.null;\r",
+							"\r",
+							"    if (match) {\r",
+							"        let withdrewAmount = parseFloat(match[1]);\r",
+							"        let accountNumber = parseInt(match[2]);\r",
+							"\r",
+							"        let n1 = parseFloat(pm.environment.get(\"10% 1account1balance\"));\r",
+							"        let n2 = parseInt(pm.environment.get(\"accountId\"));\r",
+							"\r",
+							"        pm.expect(withdrewAmount).to.equal(n1);\r",
+							"        pm.expect(accountNumber).to.equal(n2);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/withdraw?accountId={{accountId}}&amount={{10% 1account1balance}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"withdraw"
+					],
+					"query": [
+						{
+							"key": "accountId",
+							"value": "{{accountId}}"
+						},
+						{
+							"key": "amount",
+							"value": "{{10% 1account1balance}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CAccountBalance_AfterWithdrew",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains the correct id, customerId, and balance\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    let expectedId = parseInt(pm.environment.get(\"accountId\"));\r",
+							"    let expectedCustomerId = parseInt(pm.globals.get(\"customer_id\"));\r",
+							"    let expectedBalance = parseFloat(pm.environment.get(\"1account2balance\"));\r",
+							"\r",
+							"    pm.expect(responseData.id).to.equal(expectedId);\r",
+							"    pm.expect(responseData.customerId).to.equal(expectedCustomerId);\r",
+							"    pm.expect(responseData.balance).to.equal(expectedBalance);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank//accounts/{{accountId}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"",
+						"accounts",
+						"{{accountId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CreateAccount_CHECKING",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate API Response Against Expected Inputs\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"    \r",
+							"let accountIds = JSON.parse(pm.environment.get(\"accountIds\") || \"[]\");\r",
+							"accountIds.push(response.id);\r",
+							"pm.environment.set(\"accountIds\", JSON.stringify(accountIds));\r",
+							"\r",
+							"    let expectedData = {\r",
+							"        customerId: pm.variables.get(\"customer_id\"),\r",
+							"    };\r",
+							"\r",
+							"    pm.expect(response.customerId).to.eql(expectedData.customerId, \"CustomerId Mismatch\");\r",
+							"    pm.expect(response.type).to.eql(\"CHECKING\", \"ID Mismatch\");\r",
+							"    pm.expect(response.balance).to.eql(0, \"ID Mismatch\");\r",
+							"\r",
+							"    console.log(\"Validation Passed\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/createAccount?customerId={{customer_id}}&newAccountType=0&fromAccountId={{accountId}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"createAccount"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "{{customer_id}}"
+						},
+						{
+							"key": "newAccountType",
+							"value": "0"
+						},
+						{
+							"key": "fromAccountId",
+							"value": "{{accountId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CreateAccount_SAVINGS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate API Response Against Expected Inputs\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"\r",
+							"    let accountIds = JSON.parse(pm.environment.get(\"accountIds\") || \"[]\");\r",
+							"accountIds.push(response.id);\r",
+							"pm.environment.set(\"accountIds\", JSON.stringify(accountIds));\r",
+							"\r",
+							"    let expectedData = {\r",
+							"        customerId: pm.variables.get(\"customer_id\"),\r",
+							"    };\r",
+							"\r",
+							"    pm.expect(response.customerId).to.eql(expectedData.customerId, \"CustomerId Mismatch\");\r",
+							"    pm.expect(response.type).to.eql(\"SAVINGS\", \"ID Mismatch\");\r",
+							"    pm.expect(response.balance).to.eql(0, \"ID Mismatch\");\r",
+							"\r",
+							"\r",
+							"\r",
+							"    console.log(\"Validation Passed\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/createAccount?customerId={{customer_id}}&newAccountType=1&fromAccountId={{accountId}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"createAccount"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "{{customer_id}}"
+						},
+						{
+							"key": "newAccountType",
+							"value": "1"
+						},
+						{
+							"key": "fromAccountId",
+							"value": "{{accountId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CreateAccount_LOAN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate API Response Against Expected Inputs\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"\r",
+							"    let accountIds = JSON.parse(pm.environment.get(\"accountIds\") || \"[]\");\r",
+							"accountIds.push(response.id);\r",
+							"pm.environment.set(\"accountIds\", JSON.stringify(accountIds));\r",
+							"\r",
+							"    let expectedData = {\r",
+							"        customerId: pm.variables.get(\"customer_id\"),\r",
+							"    };\r",
+							"\r",
+							"    pm.expect(response.customerId).to.eql(expectedData.customerId, \"CustomerId Mismatch\");\r",
+							"    pm.expect(response.type).to.eql(\"LOAN\", \"ID Mismatch\");\r",
+							"    pm.expect(response.balance).to.eql(0, \"ID Mismatch\");\r",
+							"\r",
+							"\r",
+							"\r",
+							"    console.log(\"Validation Passed\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/createAccount?customerId={{customer_id}}&newAccountType=2&fromAccountId={{accountId}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"createAccount"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "{{customer_id}}"
+						},
+						{
+							"key": "newAccountType",
+							"value": "2"
+						},
+						{
+							"key": "fromAccountId",
+							"value": "{{accountId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CustomersAccounts after New Accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let responseData = pm.response.json();\r",
+							"let responseAccountIds = responseData.map(account => account.id);\r",
+							"\r",
+							"let storedAccountIds = JSON.parse(pm.environment.get(\"accountIds\") || \"[]\");\r",
+							"\r",
+							"let allExist = storedAccountIds.every(id => responseAccountIds.includes(id));\r",
+							"\r",
+							"console.log(\"All stored accounts exist:\", allExist);\r",
+							"\r",
+							"pm.test(\"All stored accounts exist in the response\", function () {\r",
+							"    pm.expect(allExist).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Add the Second Account ID and Balance\", function () {\r",
+							"let responseData = pm.response.json(); \r",
+							"pm.environment.set(\"account2Id\", responseData[1].id);\r",
+							"pm.environment.set(\"2account1balance\", responseData[1].balance);\r",
+							"    console.log(\"Account 2 ID and Balance Successfully Added\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/customers/{{customer_id}}/accounts",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"customers",
+						"{{customer_id}}",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Transfer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response message contains the correct transferred amount and accounts number\", function () {\r",
+							"    let responseText = pm.response.text();\r",
+							"    let match = responseText.match(/Successfully transferred \\$(\\d+) from account #(\\d+) to account #(\\d+)/);\r",
+							"\r",
+							"    pm.expect(match).to.not.be.null;\r",
+							"\r",
+							"    if (match) {\r",
+							"        let transferredAmount = parseFloat(match[1]);\r",
+							"        let account2Number = parseInt(match[2]);\r",
+							"        let account1Number = parseInt(match[3]);\r",
+							"\r",
+							"        let n1 = parseFloat(pm.environment.get(\"2account1balance\"));\r",
+							"        let n2 = parseInt(pm.environment.get(\"account2Id\"));\r",
+							"        let n3 = parseInt(pm.environment.get(\"accountId\"));\r",
+							"\r",
+							"        pm.expect(transferredAmount).to.equal(n1);\r",
+							"        pm.expect(account2Number).to.equal(n2);\r",
+							"        pm.expect(account1Number).to.equal(n3);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/transfer?fromAccountId={{account2Id}}&toAccountId={{accountId}}&amount={{2account1balance}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"transfer"
+					],
+					"query": [
+						{
+							"key": "fromAccountId",
+							"value": "{{account2Id}}"
+						},
+						{
+							"key": "toAccountId",
+							"value": "{{accountId}}"
+						},
+						{
+							"key": "amount",
+							"value": "{{2account1balance}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CAccountBalance_AfterTransfer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains the correct id, customerId, and balance\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    let expectedId = parseInt(pm.environment.get(\"account2Id\"));\r",
+							"    let expectedCustomerId = parseInt(pm.globals.get(\"customer_id\"));\r",
+							"\r",
+							"    pm.expect(responseData.id).to.equal(expectedId);\r",
+							"    pm.expect(responseData.customerId).to.equal(expectedCustomerId);\r",
+							"    pm.expect(responseData.balance).to.equal(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data matches expected format\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData).to.have.all.keys(\"id\", \"customerId\", \"type\", \"balance\");\r",
+							"\r",
+							"    pm.expect(responseData.id).to.be.a('number');\r",
+							"    pm.expect(responseData.customerId).to.be.a('number');\r",
+							"    pm.expect(responseData.type).to.be.a('string');\r",
+							"    pm.expect(responseData.balance).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/accounts/{{account2Id}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"accounts",
+						"{{account2Id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_TransactionsAccount1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data matches expected format\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(item => {\r",
+							"        pm.expect(item).to.be.an('object');\r",
+							"        pm.expect(item).to.have.all.keys(\"id\", \"accountId\", \"type\", \"date\", \"amount\", \"description\");\r",
+							"\r",
+							"        pm.expect(item.id).to.be.a('number');\r",
+							"        pm.expect(item.accountId).to.be.a('number');\r",
+							"        pm.expect(item.type).to.be.a('string');\r",
+							"        pm.expect([\"Debit\", \"Credit\"]).to.include(item.type);\r",
+							"        pm.expect(item.date).to.be.a('number');\r",
+							"        pm.expect(item.amount).to.be.a('number');\r",
+							"        pm.expect(item.description).to.be.a('string');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Save last transaction ID as transferId\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array').and.to.have.length.above(0);\r",
+							"    let lastTransactionId = jsonData[jsonData.length - 1].id;\r",
+							"    pm.expect(lastTransactionId).to.be.a(\"number\");\r",
+							"    pm.environment.set(\"transferId\", lastTransactionId);\r",
+							"    console.log(\"Transfer ID saved:\", lastTransactionId);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/accounts/{{accountId}}/transactions",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"accounts",
+						"{{accountId}}",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_TransactionsAccount2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data matches expected format\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(item => {\r",
+							"        pm.expect(item).to.be.an('object');\r",
+							"        pm.expect(item).to.have.all.keys(\"id\", \"accountId\", \"type\", \"date\", \"amount\", \"description\");\r",
+							"\r",
+							"        pm.expect(item.id).to.be.a('number');\r",
+							"        pm.expect(item.accountId).to.be.a('number');\r",
+							"        pm.expect(item.type).to.be.a('string');\r",
+							"        pm.expect([\"Debit\", \"Credit\"]).to.include(item.type);\r",
+							"        pm.expect(item.date).to.be.a('number');\r",
+							"        pm.expect(item.amount).to.be.a('number');\r",
+							"        pm.expect(item.description).to.be.a('string');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank//accounts/{{account2Id}}/transactions",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"",
+						"accounts",
+						"{{account2Id}}",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Transactions_WithAmount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data matches expected format\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(item => {\r",
+							"        pm.expect(item).to.be.an('object');\r",
+							"        pm.expect(item).to.have.all.keys(\"id\", \"accountId\", \"type\", \"date\", \"amount\", \"description\");\r",
+							"\r",
+							"        pm.expect(item.id).to.be.a('number');\r",
+							"        pm.expect(item.accountId).to.be.a('number');\r",
+							"        pm.expect(item.type).to.be.a('string');\r",
+							"        pm.expect([\"Debit\", \"Credit\"]).to.include(item.type);\r",
+							"        pm.expect(item.date).to.be.a('number');\r",
+							"        pm.expect(item.amount).to.be.a('number');\r",
+							"        pm.expect(item.description).to.be.a('string');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/accounts/{{account2Id}}/transactions/amount/{{2account1balance}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"accounts",
+						"{{account2Id}}",
+						"transactions",
+						"amount",
+						"{{2account1balance}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Transactions_WithMonth+Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data matches expected format\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(item => {\r",
+							"        pm.expect(item).to.be.an('object');\r",
+							"        pm.expect(item).to.have.all.keys(\"id\", \"accountId\", \"type\", \"date\", \"amount\", \"description\");\r",
+							"\r",
+							"        pm.expect(item.id).to.be.a('number');\r",
+							"        pm.expect(item.accountId).to.be.a('number');\r",
+							"        pm.expect(item.type).to.be.a('string');\r",
+							"        pm.expect([\"Debit\", \"Credit\"]).to.include(item.type);\r",
+							"        pm.expect(item.date).to.be.a('number');\r",
+							"        pm.expect(item.amount).to.be.a('number');\r",
+							"        pm.expect(item.description).to.be.a('string');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let now = new Date();\r",
+							"let firstDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);\r",
+							"let timestamp = firstDayOfMonth.getTime();\r",
+							"\r",
+							"console.log(\"Timestamp for the first day of the month:\", timestamp);\r",
+							"pm.environment.set(\"currentMonthTimestamp\", timestamp);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/accounts/{{account2Id}}/transactions/month/{{currentMonthTimestamp}}/type/Debit",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"accounts",
+						"{{account2Id}}",
+						"transactions",
+						"month",
+						"{{currentMonthTimestamp}}",
+						"type",
+						"Debit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Transactions_FromDateToDate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data matches expected format\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(item => {\r",
+							"        pm.expect(item).to.be.an('object');\r",
+							"        pm.expect(item).to.have.all.keys(\"id\", \"accountId\", \"type\", \"date\", \"amount\", \"description\");\r",
+							"\r",
+							"        pm.expect(item.id).to.be.a('number');\r",
+							"        pm.expect(item.accountId).to.be.a('number');\r",
+							"        pm.expect(item.type).to.be.a('string');\r",
+							"        pm.expect(item.date).to.be.a('string');\r",
+							"        pm.expect(Date.parse(item.date)).to.not.be.NaN;\r",
+							"        pm.expect(item.amount).to.be.a('number');\r",
+							"        pm.expect(item.description).to.be.a('string');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let now = new Date();\r",
+							"\r",
+							"\r",
+							"let threeDaysAgo = new Date(now);\r",
+							"threeDaysAgo.setDate(now.getDate() - 3);\r",
+							"let threeDaysAgoFormatted = threeDaysAgo.toISOString();\r",
+							"\r",
+							"let threeDaysLater = new Date(now);\r",
+							"threeDaysLater.setDate(now.getDate() + 3);\r",
+							"let threeDaysLaterFormatted = threeDaysLater.toISOString();\r",
+							"\r",
+							"console.log(\"Formatted date for 3 days ago:\", threeDaysAgoFormatted);\r",
+							"console.log(\"Formatted date for 3 days later:\", threeDaysLaterFormatted);\r",
+							"\r",
+							"pm.environment.set(\"threeDaysAgoFormatted\", threeDaysAgoFormatted);\r",
+							"pm.environment.set(\"threeDaysLaterFormatted\", threeDaysLaterFormatted);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/accounts/{{account2Id}}/transactions/fromDate/{{threeDaysAgoFormatted}}/toDate/{{threeDaysLaterFormatted}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"accounts",
+						"{{account2Id}}",
+						"transactions",
+						"fromDate",
+						"{{threeDaysAgoFormatted}}",
+						"toDate",
+						"{{threeDaysLaterFormatted}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Transactions_OnDate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data matches expected format\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(item => {\r",
+							"        pm.expect(item).to.be.an('object');\r",
+							"        pm.expect(item).to.have.all.keys(\"id\", \"accountId\", \"type\", \"date\", \"amount\", \"description\");\r",
+							"\r",
+							"        pm.expect(item.id).to.be.a('number');\r",
+							"        pm.expect(item.accountId).to.be.a('number');\r",
+							"        pm.expect(item.type).to.be.a('string');\r",
+							"        pm.expect(item.date).to.be.a('string');\r",
+							"        pm.expect(Date.parse(item.date)).to.not.be.NaN;\r",
+							"        pm.expect(item.amount).to.be.a('number');\r",
+							"        pm.expect(item.description).to.be.a('string');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let now = new Date();\r",
+							"\r",
+							"let Utimestamp = now.getTime();\r",
+							"let timestamp = new Date(Utimestamp).toISOString();\r",
+							"\r",
+							"console.log(\"Timestamp for Now:\", timestamp);\r",
+							"pm.environment.set(\"currentTimestamp\", timestamp);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/accounts/{{account2Id}}/transactions/onDate/{{currentTimestamp}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"accounts",
+						"{{account2Id}}",
+						"transactions",
+						"onDate",
+						"{{currentTimestamp}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Transactions_byTransactionID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(Object.keys(responseData).length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response matches expected format\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData).to.have.property(\"id\").that.is.a(\"number\");\r",
+							"    pm.expect(jsonData).to.have.property(\"accountId\").that.is.a(\"number\");\r",
+							"    pm.expect(jsonData).to.have.property(\"type\").that.is.a(\"string\");\r",
+							"    pm.expect(jsonData).to.have.property(\"date\").that.is.a(\"number\");\r",
+							"    pm.expect(jsonData).to.have.property(\"amount\").that.is.a(\"number\");\r",
+							"    pm.expect(jsonData).to.have.property(\"description\").that.is.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/transactions/{{transferId}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"transactions",
+						"{{transferId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_RequestLoan}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response matches expected format and values\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(jsonData).to.have.property(\"responseDate\").that.is.a(\"number\");\r",
+							"    pm.expect(jsonData).to.have.property(\"loanProviderName\").that.is.a(\"string\");\r",
+							"    pm.expect(jsonData).to.have.property(\"approved\").that.is.a(\"boolean\");\r",
+							"\r",
+							"    pm.expect(jsonData).to.have.property(\"accountId\");\r",
+							"    if (jsonData.accountId !== null) {\r",
+							"        pm.expect(jsonData.accountId).to.be.a(\"number\");\r",
+							"\r",
+							"        // let expectedAccountId = parseInt(pm.environment.get(\"accountId\"));\r",
+							"        // pm.expect(jsonData.accountId).to.equal(expectedAccountId);\r",
+							"    }\r",
+							"\r",
+							"    let responseDate = new Date(jsonData.responseDate).toISOString().slice(0, 16);\r",
+							"    let currentDate = new Date().toISOString().slice(0, 16);\r",
+							"\r",
+							"    console.log(\"Response Date:\", responseDate);\r",
+							"    console.log(\"Current Date:\", currentDate);\r",
+							"\r",
+							"    pm.expect(responseDate).to.equal(currentDate);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/requestLoan?customerId={{customer_id}}&amount=1000&downPayment=100&fromAccountId={{accountId}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"requestLoan"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "{{customer_id}}"
+						},
+						{
+							"key": "amount",
+							"value": "1000"
+						},
+						{
+							"key": "downPayment",
+							"value": "100"
+						},
+						{
+							"key": "fromAccountId",
+							"value": "{{accountId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_SetParameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/setParameter/A/1",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"setParameter",
+						"A",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CustomerPositions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    // pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"    pm.expect(responseData.length).to.be.lessThan(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/customers/{{customer_id}}/positions",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"customers",
+						"{{customer_id}}",
+						"positions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_BuyPosition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response matches expected format\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(jsonData).to.be.an(\"array\").that.is.not.empty;\r",
+							"    \r",
+							"    let position = jsonData[0];\r",
+							"\r",
+							"    pm.expect(position).to.have.property(\"positionId\").that.is.a(\"number\");\r",
+							"    pm.expect(position).to.have.property(\"customerId\").that.is.a(\"number\");\r",
+							"    pm.expect(position).to.have.property(\"name\").that.is.a(\"string\");\r",
+							"    pm.expect(position).to.have.property(\"symbol\").that.is.a(\"string\");\r",
+							"    pm.expect(position).to.have.property(\"shares\").that.is.a(\"number\");\r",
+							"    pm.expect(position).to.have.property(\"purchasePrice\").that.is.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Values match expected variables\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    let position = jsonData[0];\r",
+							"\r",
+							"    pm.expect(position.customerId).to.equal(parseInt(pm.globals.get(\"customer_id\")));\r",
+							"    pm.expect(position.name).to.equal(pm.environment.get(\"position.name\"));\r",
+							"    pm.expect(position.symbol).to.equal(pm.environment.get(\"position.symbol\"));\r",
+							"    pm.expect(position.shares).to.equal(parseInt(pm.environment.get(\"position.shares\")));\r",
+							"    pm.expect(position.purchasePrice).to.equal(parseFloat(pm.environment.get(\"position.purchasePrice\")));\r",
+							"});\r",
+							"\r",
+							"pm.environment.set(\"positionId\", pm.response.json()[0].positionId);\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/customers/{{customer_id}}/buyPosition?accountId={{accountId}}&name={{position.name}}&symbol={{position.symbol}}&shares={{position.shares}}&pricePerShare={{position.purchasePrice}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"customers",
+						"{{customer_id}}",
+						"buyPosition"
+					],
+					"query": [
+						{
+							"key": "accountId",
+							"value": "{{accountId}}"
+						},
+						{
+							"key": "name",
+							"value": "{{position.name}}"
+						},
+						{
+							"key": "symbol",
+							"value": "{{position.symbol}}"
+						},
+						{
+							"key": "shares",
+							"value": "{{position.shares}}"
+						},
+						{
+							"key": "pricePerShare",
+							"value": "{{position.purchasePrice}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_positions_ByPoditionID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response matches expected format\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    \r",
+							"    pm.expect(jsonData).to.have.property(\"positionId\").that.is.a(\"number\");\r",
+							"    pm.expect(jsonData).to.have.property(\"customerId\").that.is.a(\"number\");\r",
+							"    pm.expect(jsonData).to.have.property(\"name\").that.is.a(\"string\");\r",
+							"    pm.expect(jsonData).to.have.property(\"symbol\").that.is.a(\"string\");\r",
+							"    pm.expect(jsonData).to.have.property(\"shares\").that.is.a(\"number\");\r",
+							"    pm.expect(jsonData).to.have.property(\"purchasePrice\").that.is.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Values match expected variables\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData.customerId).to.equal(parseInt(pm.globals.get(\"customer_id\")));\r",
+							"    pm.expect(jsonData.name).to.equal(pm.environment.get(\"position.name\"));\r",
+							"    pm.expect(jsonData.symbol).to.equal(pm.environment.get(\"position.symbol\"));\r",
+							"    pm.expect(jsonData.shares).to.equal(parseInt(pm.environment.get(\"position.shares\")));\r",
+							"    pm.expect(jsonData.purchasePrice).to.equal(parseFloat(pm.environment.get(\"position.purchasePrice\")));\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/positions/{{positionId}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"positions",
+						"{{positionId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_CustomerPositions_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response matches expected format\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(jsonData).to.be.an(\"array\").that.is.not.empty;\r",
+							"    \r",
+							"    let position = jsonData[0];\r",
+							"\r",
+							"    pm.expect(position).to.have.property(\"positionId\").that.is.a(\"number\");\r",
+							"    pm.expect(position).to.have.property(\"customerId\").that.is.a(\"number\");\r",
+							"    pm.expect(position).to.have.property(\"name\").that.is.a(\"string\");\r",
+							"    pm.expect(position).to.have.property(\"symbol\").that.is.a(\"string\");\r",
+							"    pm.expect(position).to.have.property(\"shares\").that.is.a(\"number\");\r",
+							"    pm.expect(position).to.have.property(\"purchasePrice\").that.is.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Values match expected variables\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    let position = jsonData[0];\r",
+							"\r",
+							"    pm.expect(position.customerId).to.equal(parseInt(pm.globals.get(\"customer_id\")));\r",
+							"    pm.expect(position.name).to.equal(pm.environment.get(\"position.name\"));\r",
+							"    pm.expect(position.symbol).to.equal(pm.environment.get(\"position.symbol\"));\r",
+							"    pm.expect(position.shares).to.equal(parseInt(pm.environment.get(\"position.shares\")));\r",
+							"    pm.expect(position.purchasePrice).to.equal(parseFloat(pm.environment.get(\"position.purchasePrice\")));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/customers/{{customer_id}}/positions",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"customers",
+						"{{customer_id}}",
+						"positions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_Positions_by id within a date range",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an array with correct format\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"    pm.expect(jsonData.length).to.be.above(0);\r",
+							"\r",
+							"    jsonData.forEach(item => {\r",
+							"        pm.expect(item).to.have.property(\"symbol\").that.is.a(\"string\");\r",
+							"        pm.expect(item).to.have.property(\"date\").that.is.a(\"string\");\r",
+							"        pm.expect(item).to.have.property(\"closingPrice\").that.is.a(\"number\");\r",
+							"\r",
+							"        let datePattern = /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$/;\r",
+							"        pm.expect(item.date).to.match(datePattern);\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/positions/{{positionId}}/{{threeDaysAgoFormatted}}/{{threeDaysLaterFormatted}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"positions",
+						"{{positionId}}",
+						"{{threeDaysAgoFormatted}}",
+						"{{threeDaysLaterFormatted}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parabank_SellPosition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data is not empty\", function () {\r",
+							"    let responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an array with correct format\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"    pm.expect(jsonData.length).to.be.above(0);\r",
+							"\r",
+							"    jsonData.forEach(item => {\r",
+							"        pm.expect(item).to.have.property(\"positionId\").that.is.a(\"number\");\r",
+							"        pm.expect(item).to.have.property(\"customerId\").that.is.a(\"number\");\r",
+							"        pm.expect(item).to.have.property(\"name\").that.is.a(\"string\");\r",
+							"        pm.expect(item).to.have.property(\"symbol\").that.is.a(\"string\");\r",
+							"        pm.expect(item).to.have.property(\"shares\").that.is.a(\"number\");\r",
+							"        pm.expect(item).to.have.property(\"purchasePrice\").that.is.a(\"number\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://parabank.parasoft.com/parabank/services/bank/customers/{{customer_id}}/sellPosition?accountId={{accountId}}&positionId={{positionId}}&shares={{position.shares}}&pricePerShare={{position.purchasePrice}}",
+					"protocol": "https",
+					"host": [
+						"parabank",
+						"parasoft",
+						"com"
+					],
+					"path": [
+						"parabank",
+						"services",
+						"bank",
+						"customers",
+						"{{customer_id}}",
+						"sellPosition"
+					],
+					"query": [
+						{
+							"key": "accountId",
+							"value": "{{accountId}}"
+						},
+						{
+							"key": "positionId",
+							"value": "{{positionId}}"
+						},
+						{
+							"key": "shares",
+							"value": "{{position.shares}}"
+						},
+						{
+							"key": "pricePerShare",
+							"value": "{{position.purchasePrice}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
