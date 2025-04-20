@@ -7,7 +7,7 @@ This project is licensed under the **Team License**.
 By accessing, using, or contributing to this project, you agree to the following terms:
 
 1. **Usage Rights**:  
-   This project is intended for educational and non-commercial purposes.  
+   This project is intended for educational and non-commercial purposes. 
    You may use, copy, modify, and distribute the materials within this repository for learning and personal development.
 
 2. **Attribution**:  
